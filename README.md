@@ -1,6 +1,6 @@
 # React Native Replicache
 
-Plug-in React native compatibility bindings for Replicache.
+Plug-in React Native compatibility bindings for Replicache.
 
 https://user-images.githubusercontent.com/5165963/219898954-f5e94045-69bf-4c33-84e8-7d152c6f2c32.mov
 
