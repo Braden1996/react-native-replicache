@@ -1,0 +1,8 @@
+{
+  "extends": "@braden1996/tsconfig/react-native.json",
+  "compilerOptions": {
+    "types": ["./types/globals"]
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

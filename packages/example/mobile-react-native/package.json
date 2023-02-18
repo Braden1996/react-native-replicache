@@ -1,0 +1,54 @@
+{
+  "name": "@react-native-replicache/example-mobile-react-native",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "dev": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "prebuild": "expo prebuild",
+    "test": "yarn run test-typescript",
+    "test-typescript": "tsc --noEmit",
+    "lint": "eslint ./src/**/*.{ts,tsx}",
+    "lint-fix": "yarn run lint --fix",
+    "clean": "rm -rf .turbo .expo ios android",
+    "clean-expo": "rm -rf .expo ios android",
+    "clean-cache": "rm -rf $TMPDIR/metro-cache ~/Library/Developer/Xcode/DerivedData/ && watchman watch-del-all",
+    "start": "expo start --dev-client"
+  },
+  "dependencies": {
+    "@react-native-replicache/example-client-shared": "0.0.0",
+    "@react-native-replicache/example-shared": "0.0.0",
+    "@react-native-replicache/react-native-quick-sqlite": "0.0.1",
+    "expo": "~48.0.1",
+    "expo-build-properties": "0.5.1",
+    "expo-crypto": "^12.0.0",
+    "expo-dev-client": "2.1.1",
+    "expo-splash-screen": "~0.18.1",
+    "expo-status-bar": "1.4.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.71.3",
+    "react-native-flipper": "0.174.0",
+    "react-native-quick-sqlite": "8.0.0-beta.2",
+    "react-native-sse": "^1.1.0",
+    "replicache": "12.2.0",
+    "replicache-react": "^2.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@braden1996/tsconfig": "^0.0.1",
+    "@types/react": "^18.0.28",
+    "@types/react-native": "~0.71.2",
+    "@types/react-native__assets": "^1.0.0",
+    "eslint": "8.32.0",
+    "eslint-config-universe": "^11.1.1",
+    "get-yarn-workspaces": "^1.0.2",
+    "prettier": "^2.8.3",
+    "typescript": "~4.9.4"
+  },
+  "eslintConfig": {
+    "extends": "universe/native"
+  }
+}

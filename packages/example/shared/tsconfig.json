@@ -1,0 +1,10 @@
+{
+  "extends": "@braden1996/tsconfig/base.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "types": ["./types/replicache"]
+  },
+  "include": [
+    "src"
+  ]
+}

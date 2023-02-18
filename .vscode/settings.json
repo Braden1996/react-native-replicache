@@ -1,0 +1,11 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.tabSize": 2,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "eslint.packageManager": "yarn",
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+}

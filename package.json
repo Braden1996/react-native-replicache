@@ -1,0 +1,41 @@
+{
+  "name": "react-native-replicache",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "16.19.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braden1996/react-native-replicache.git"
+  },
+  "author": "Braden Marshall <braden1996@hotmail.co.uk>",
+  "license": "MIT",
+  "homepage": "https://github.com/braden1996/react-native-replicache",
+  "bugs": {
+    "url": "https://github.com/braden1996/react-native-replicache/issues"
+  },
+  "packageManager": "yarn@3.4.1",
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "test-typescript": "turbo run test",
+    "lint": "turbo run lint",
+    "lint-fix": "turbo run lint-fix",
+    "clean": "turbo run clean",
+    "clean-node-modules": "rm -rf **/node_modules",
+    "graph": "turbo run build --graph=graph.pdf"
+  },
+  "devDependencies": {
+    "eslint-config-universe": "^11.1.1",
+    "syncpack": "^9.3.2",
+    "turbo": "latest"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/example/*",
+      "packages/react-native-quick-sqlite"
+    ]
+  }
+}

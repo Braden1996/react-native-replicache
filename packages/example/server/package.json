@@ -1,0 +1,58 @@
+{
+  "name": "@react-native-replicache/example-server",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./src/index.ts",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/braden1996/react-native-replicache.git",
+    "directory": "packages/react-native-quick-sqlite"
+  },
+  "engines": {
+    "node": "16.19.x"
+  },
+  "keywords": [
+    "react-native-replicache",
+    "braden1996"
+  ],
+  "author": "Braden Marshall <braden1996@hotmail.co.uk>",
+  "license": "MIT",
+  "homepage": "https://github.com/braden1996/react-native-replicache",
+  "bugs": {
+    "url": "https://github.com/braden1996/react-native-replicache/issues"
+  },
+  "scripts": {
+    "build": "ncc build ./src/index.ts --source-map --transpile-only",
+    "start": "node -r dotenv/config ./dist/index.js",
+    "dev": "NODE_ENV=development nodemon",
+    "test": "yarn run test-typescript",
+    "test-typescript": "tsc --noEmit",
+    "lint": "eslint ./src --ext .js,.ts,.tsx",
+    "lint-fix": "yarn run lint --fix",
+    "clean": "rm -rf dist .turbo"
+  },
+  "dependencies": {
+    "@react-native-replicache/example-shared": "0.0.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "pg-mem": "^2.6.4",
+    "replicache": "12.2.0",
+    "replicache-express": "^0.2.1"
+  },
+  "devDependencies": {
+    "@braden1996/tsconfig": "^0.0.1",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.50",
+    "@vercel/ncc": "^0.36.0",
+    "eslint": "8.32.0",
+    "eslint-config-universe": "^11.1.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.8.3",
+    "ts-node": "^10.9.1",
+    "typescript": "~4.9.4"
+  },
+  "eslintConfig": {
+    "extends": "universe/native"
+  }
+}

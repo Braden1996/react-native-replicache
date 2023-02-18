@@ -1,0 +1,9 @@
+{
+  "extends": "@braden1996/tsconfig/react-library.json",
+  "compilerOptions": {
+    "rootDir": "./src",
+    "baseUrl": ".",
+    "types": ["./types/replicache", "./types/globals"]
+  },
+  "include": ["src"]
+}

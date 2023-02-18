@@ -1,0 +1,36 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "test": {
+      "dependsOn": [
+        "^test-typescript",
+        "^lint",
+        "^build"
+      ]
+    },
+    "clean": {
+      "outputs": [
+        "dist/**"
+      ]
+    },
+    "test-typescript": {
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "lint-fix": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "extends": "@braden1996/tsconfig/react-dom.json",
+  "exclude": ["./dist"],
+  "compilerOptions": {
+    "target": "ES2017",
+    "types": ["react", "vite/client"]
+  }
+}
