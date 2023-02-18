@@ -1,44 +1,22 @@
+import { ExperimentalCreateKVStore, ReadonlyJSONValue } from "replicache";
+
 import { ReplicacheQuickSQLiteReadImpl } from "./replicache-quick-sqlite-read-impl";
-import { ReplicacheQuickSQLiteTransaction } from "./replicache-quick-sqlite-transaction";
-import {
-  deleteSentinel,
-  ReplicacheQuickSQLiteWriteImplBase,
-} from "./replicache-quick-sqlite-write-impl-base";
 
-export class ReplicacheQuickSQLiteWriteImpl extends ReplicacheQuickSQLiteWriteImplBase {
-  private readonly _tx: ReplicacheQuickSQLiteTransaction;
-  private _closed = false;
+export class ReplicacheQuickSQLiteWriteImpl
+  extends ReplicacheQuickSQLiteReadImpl
+  implements
+    Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["write"]>>
+{
+  async put(key: string, value: ReadonlyJSONValue) {
+    const jsonValueString = JSON.stringify(value);
+    await this._tx.upsert(key, jsonValueString);
+  }
 
-  constructor(tx: ReplicacheQuickSQLiteTransaction) {
-    super(new ReplicacheQuickSQLiteReadImpl(tx));
-    this._tx = tx;
+  async del(key: string) {
+    await this._tx.delete(key);
   }
 
   async commit() {
-    if (this._pending.size === 0) {
-      return;
-    }
-
-    await Promise.all(
-      [...this._pending.entries()].map(async ([key, value]) => {
-        if (value === deleteSentinel) {
-          await this._tx.delete(key);
-        } else {
-          const jsonValueString = JSON.stringify(value);
-          await this._tx.upsert(key, jsonValueString);
-        }
-      })
-    );
-
-    this._pending.clear();
-  }
-
-  release() {
-    this._tx.commit();
-    this._closed = true;
-  }
-
-  get closed() {
-    return this._closed;
+    // Do nothing and wait for release.
   }
 }

@@ -8,7 +8,7 @@ export class ReplicacheQuickSQLiteReadImpl
 {
   private _closed = false;
 
-  constructor(private readonly _tx: ReplicacheQuickSQLiteTransaction) {}
+  constructor(protected readonly _tx: ReplicacheQuickSQLiteTransaction) {}
 
   async has(key: string) {
     const unsafeValue = await this._tx.get(key);

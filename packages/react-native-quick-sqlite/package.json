@@ -1,6 +1,6 @@
 {
   "name": "@react-native-replicache/react-native-quick-sqlite",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
   "react-native": "./src/index.ts",
