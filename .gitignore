@@ -10,3 +10,6 @@ node_modules
 
 # Turborepo
 .turbo
+
+# TypeScript
+tsconfig.tsbuildinfo

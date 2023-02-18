@@ -12,6 +12,21 @@ Currently, the strategy is to provide an implementation of Replicache's `Experim
 
 Additionally, some configuration is required to received poke events from the server.
 
+## How can I install this?
+
+1. Install the following in your React Native project: `yarn add @react-native-replicache/react-native-quick-sqlite react-native-quick-sqlite expo-crypto`
+2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
+  - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
+3. Pass `createReplicacheQuickSQLiteExperimentalCreateKVStore` into Replicache's `experimentalCreateKVStore` option.
+  - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).
+
+## What else will I need to do?
+
+- Configure a poke mechanism.
+  - You will likely want to use web-sockets for this, managed via Pusher/Ably/etc
+  - In our example, [seen here](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts), we use a polyfill for Server Sent Events.
+    - These aren't built into React Native, but are really handy for a demo.
+
 ## How can I experiment with this locally?
 
 ### Prerequisites:
