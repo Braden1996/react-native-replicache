@@ -34,11 +34,11 @@ jobs:
       - name: Check Package Sync
         run: if [[ -z $(yarn syncpack list-mismatches) ]]; then echo exit 0; else echo exit 1; fi
 
+      - name: Build
+        run: yarn run build
+
       - name: Test TypeScript
         run: yarn run test-typescript
 
       - name: Lint
         run: yarn run lint
-
-      - name: Build
-        run: yarn run build

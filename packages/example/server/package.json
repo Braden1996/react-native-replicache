@@ -23,8 +23,8 @@
     "url": "https://github.com/braden1996/react-native-replicache/issues"
   },
   "scripts": {
-    "build": "ncc build ./src/index.ts --source-map --transpile-only",
-    "start": "node -r dotenv/config ./dist/index.js",
+    "build": "ncc build ./src/server.ts --source-map --transpile-only",
+    "start": "node -r dotenv/config ./dist/server.js",
     "dev": "NODE_ENV=development nodemon",
     "test": "yarn run test-typescript",
     "test-typescript": "tsc --noEmit",
