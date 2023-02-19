@@ -22,7 +22,7 @@ Additionally, some configuration is required to received poke events from the se
     - `yarn add @react-native-replicache/react-native-expo-sqlite expo-sqlite expo-crypto`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
   - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
-3. Pass `createReplicacheQuickSQLiteExperimentalCreateKVStore` into Replicache's `experimentalCreateKVStore` option.
+3. Pass `createReplicacheReactNativeQuickSQLiteExperimentalCreateKVStore` or `createReplicacheReactNativeExpoSQLiteExperimentalCreateKVStore` into Replicache's `experimentalCreateKVStore` option.
   - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).
 
 ## What else will I need to do?
@@ -52,11 +52,3 @@ Additionally, some configuration is required to received poke events from the se
 
 - [Flipper](https://fbflipper.com/) has been configured for use with the example app.
   - Download it to browser network requests etc
-
-
-## Future Thoughts
-
-- I'm debating switch underlying React Native <> SQLite binding.
-  - Options are:
-    - [`expo-sqlite`](https://docs.expo.dev/versions/latest/sdk/sqlite/)
-    - [`react-native-sqlite-storage`](https://github.com/andpor/react-native-sqlite-storage)
