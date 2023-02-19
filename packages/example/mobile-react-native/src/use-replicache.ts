@@ -1,5 +1,6 @@
 import { mutators } from "@react-native-replicache/example-shared";
-import { createReplicacheQuickSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-quick-sqlite";
+import { createReplicacheExpoSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-expo-sqlite";
+// import { createReplicacheReactNativeQuickSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-quick-sqlite";
 import React from "react";
 import EventSource from "react-native-sse";
 import { Replicache, TEST_LICENSE_KEY } from "replicache";
@@ -18,7 +19,7 @@ export function useReplicache(listID: string) {
         pushURL: `http://127.0.0.1:8080/api/replicache/push?spaceID=${listID}`,
         pullURL: `http://127.0.0.1:8080/api/replicache/pull?spaceID=${listID}`,
         experimentalCreateKVStore:
-          createReplicacheQuickSQLiteExperimentalCreateKVStore,
+          createReplicacheExpoSQLiteExperimentalCreateKVStore,
         name: listID,
         mutators,
       }),

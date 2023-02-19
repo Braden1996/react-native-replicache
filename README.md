@@ -42,8 +42,9 @@ Additionally, some configuration is required to received poke events from the se
 
 1. Clone the repository: `git clone https://github.com/braden1996/react-native-replicache.git`
 2. Install yarn dependencies from repo root: `yarn install`
-3. Install the example iOS app onto a simulator/emulator or connected physical device, e.g: `yarn workspace @react-native-replicache/example-mobile-react-native ios`
-4. Once the above has installed onto your device, you can cancel the now running [Metro bundler](https://facebook.github.io/metro/) and simply start dev for all workspaces: `yarn run dev`.
+3. Perform an initial build: `yarn build`
+4. Install the example iOS app onto a simulator/emulator or connected physical device, e.g: `yarn workspace @react-native-replicache/example-mobile-react-native ios`
+5. Once the above has installed onto your device, you can cancel the now running [Metro bundler](https://facebook.github.io/metro/) and simply start dev for all workspaces: `yarn run dev`.
 
 ### Tips
 

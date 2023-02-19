@@ -30,8 +30,6 @@ export function TodoList({ listId }: TodoListProps) {
     });
   };
 
-  console.log(todos);
-
   const handleUpdateTodo = (update: TodoUpdate) =>
     rep.mutate.updateTodo(update);
 

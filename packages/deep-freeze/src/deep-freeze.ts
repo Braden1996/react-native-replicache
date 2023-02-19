@@ -1,10 +1,9 @@
-import { ReadonlyJSONObject, ReadonlyJSONValue } from "replicache";
-
 import { throwInvalidType } from "./asserts";
 import { skipAssertJSONValue, skipFreeze, skipFrozenAsserts } from "./config";
-import { Cookie, FrozenCookie } from "./cookies";
-import { FrozenJSONValue } from "./frozen";
+import type { Cookie, FrozenCookie } from "./cookies";
+import type { FrozenJSONValue } from "./frozen";
 import { hasOwn } from "./hasOwn";
+import { ReadonlyJSONObject, ReadonlyJSONValue } from "./json-value";
 
 /**
  * We tag deep frozen objects in debug mode so that we do not have to deep
