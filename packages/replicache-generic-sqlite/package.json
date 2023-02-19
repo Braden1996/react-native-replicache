@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-replicache/react-native-quick-sqlite",
+  "name": "@react-native-replicache/replicache-generic-sqlite",
   "version": "0.0.4",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
@@ -13,10 +13,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/braden1996/react-native-replicache.git",
-    "directory": "packages/react-native-quick-sqlite"
+    "directory": "packages/replicache-generic-sqlite"
   },
   "keywords": [
-    "react-native-replicache",
+    "react-native",
+    "replicache",
+    "sqlite",
     "braden1996"
   ],
   "author": "Braden Marshall <braden1996@hotmail.co.uk>",
@@ -29,24 +31,24 @@
     "build": "bob build",
     "test": "yarn run test-typescript",
     "test-typescript": "tsc --noEmit",
-    "lint": "eslint ./src --ext .js,.ts,.tsx",
+    "lint": "eslint ./src --ext .ts",
     "lint-fix": "yarn run lint --fix",
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "@react-native-replicache/replicache-generic-sqlite": "0.0.4"
+    "@react-native-replicache/deep-freeze": "0.0.4"
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
-    "@types/react": "^18.0.28",
     "eslint": "8.32.0",
     "eslint-config-universe": "^11.1.1",
     "prettier": "^2.8.3",
     "react-native-builder-bob": "^0.20.3",
+    "replicache": "12.2.0",
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "react-native-quick-sqlite": "8.0.0-beta.2"
+    "replicache": "12.2.0"
   },
   "react-native-builder-bob": {
     "source": "src",
@@ -58,6 +60,6 @@
     ]
   },
   "eslintConfig": {
-    "extends": "universe/native"
+    "extends": "universe"
   }
 }

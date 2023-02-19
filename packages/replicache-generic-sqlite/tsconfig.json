@@ -1,0 +1,8 @@
+{
+  "extends": "@braden1996/tsconfig/base.json",
+  "compilerOptions": {
+    "target": "ES2015",
+    "types": ["./types/replicache"]
+  },
+  "include": ["src"]
+}

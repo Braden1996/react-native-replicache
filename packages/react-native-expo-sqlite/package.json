@@ -1,5 +1,5 @@
 {
-  "name": "@react-native-replicache/react-native-quick-sqlite",
+  "name": "@react-native-replicache/react-native-expo-sqlite",
   "version": "0.0.4",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
@@ -13,7 +13,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/braden1996/react-native-replicache.git",
-    "directory": "packages/react-native-quick-sqlite"
+    "directory": "packages/react-native-expo-sqlite"
   },
   "keywords": [
     "react-native-replicache",
@@ -46,7 +46,8 @@
     "typescript": "~4.9.4"
   },
   "peerDependencies": {
-    "react-native-quick-sqlite": "8.0.0-beta.2"
+    "expo-sqlite": "11.0.0",
+    "react-native": "^0.71.0"
   },
   "react-native-builder-bob": {
     "source": "src",

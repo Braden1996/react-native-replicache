@@ -1930,6 +1930,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@expo/websql@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "@expo/websql@npm:1.0.1"
+  dependencies:
+    argsarray: ^0.0.1
+    immediate: ^3.2.2
+    noop-fn: ^1.0.0
+    pouchdb-collections: ^1.0.1
+    tiny-queue: ^0.2.1
+  checksum: 9458137b3c59774ca8bf18e2289ee2fd15c710a8017c84be49f78d9b988d6234b02388de2786b44ed22e906e006c3c131413e90e3b703b00886269ddea76cc5d
+  languageName: node
+  linkType: hard
+
 "@expo/xcpretty@npm:^4.2.1":
   version: 4.2.2
   resolution: "@expo/xcpretty@npm:4.2.2"
@@ -2504,6 +2517,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-replicache/deep-freeze@0.0.4, @react-native-replicache/deep-freeze@workspace:packages/deep-freeze":
+  version: 0.0.0-use.local
+  resolution: "@react-native-replicache/deep-freeze@workspace:packages/deep-freeze"
+  dependencies:
+    "@braden1996/tsconfig": ^0.0.1
+    eslint: 8.32.0
+    eslint-config-universe: ^11.1.1
+    prettier: ^2.8.3
+    react-native-builder-bob: ^0.20.3
+    typescript: ~4.9.4
+  languageName: unknown
+  linkType: soft
+
 "@react-native-replicache/example-client-shared@0.0.0, @react-native-replicache/example-client-shared@workspace:packages/example/client-shared":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/example-client-shared@workspace:packages/example/client-shared"
@@ -2528,7 +2554,8 @@ __metadata:
     "@braden1996/tsconfig": ^0.0.1
     "@react-native-replicache/example-client-shared": 0.0.0
     "@react-native-replicache/example-shared": 0.0.0
-    "@react-native-replicache/react-native-quick-sqlite": 0.0.3
+    "@react-native-replicache/react-native-expo-sqlite": 0.0.4
+    "@react-native-replicache/react-native-quick-sqlite": 0.0.4
     "@types/react": ^18.0.28
     "@types/react-native": ~0.71.2
     "@types/react-native__assets": ^1.0.0
@@ -2539,12 +2566,13 @@ __metadata:
     expo-crypto: ^12.0.0
     expo-dev-client: 2.1.1
     expo-splash-screen: ~0.18.1
+    expo-sqlite: 11.0.0
     expo-status-bar: 1.4.4
     get-yarn-workspaces: ^1.0.2
     prettier: ^2.8.3
     react: 18.2.0
     react-dom: 18.2.0
-    react-native: 0.71.3
+    react-native: 0.71.2
     react-native-flipper: 0.174.0
     react-native-quick-sqlite: 8.0.0-beta.2
     react-native-sse: ^1.1.0
@@ -2624,11 +2652,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-quick-sqlite@0.0.3, @react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite":
+"@react-native-replicache/react-native-expo-sqlite@0.0.4, @react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite":
   version: 0.0.0-use.local
-  resolution: "@react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite"
+  resolution: "@react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
+    "@react-native-replicache/replicache-generic-sqlite": 0.0.4
     "@types/react": ^18.0.28
     eslint: 8.32.0
     eslint-config-universe: ^11.1.1
@@ -2636,9 +2665,41 @@ __metadata:
     react-native-builder-bob: ^0.20.3
     typescript: ~4.9.4
   peerDependencies:
-    react: 18.2.0
-    react-native: 0.71.3
+    expo-sqlite: 11.0.0
+    react-native: ^0.71.0
+  languageName: unknown
+  linkType: soft
+
+"@react-native-replicache/react-native-quick-sqlite@0.0.4, @react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite":
+  version: 0.0.0-use.local
+  resolution: "@react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite"
+  dependencies:
+    "@braden1996/tsconfig": ^0.0.1
+    "@react-native-replicache/replicache-generic-sqlite": 0.0.4
+    "@types/react": ^18.0.28
+    eslint: 8.32.0
+    eslint-config-universe: ^11.1.1
+    prettier: ^2.8.3
+    react-native-builder-bob: ^0.20.3
+    typescript: ~4.9.4
+  peerDependencies:
     react-native-quick-sqlite: 8.0.0-beta.2
+  languageName: unknown
+  linkType: soft
+
+"@react-native-replicache/replicache-generic-sqlite@0.0.4, @react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite":
+  version: 0.0.0-use.local
+  resolution: "@react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite"
+  dependencies:
+    "@braden1996/tsconfig": ^0.0.1
+    "@react-native-replicache/deep-freeze": 0.0.4
+    eslint: 8.32.0
+    eslint-config-universe: ^11.1.1
+    prettier: ^2.8.3
+    react-native-builder-bob: ^0.20.3
+    replicache: 12.2.0
+    typescript: ~4.9.4
+  peerDependencies:
     replicache: 12.2.0
   languageName: unknown
   linkType: soft
@@ -3508,6 +3569,13 @@ __metadata:
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
   checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
+  languageName: node
+  linkType: hard
+
+"argsarray@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "argsarray@npm:0.0.1"
+  checksum: 0042accbc0a2d855ad5af56df49291e0e4cae7456f42d486f4cb05518c8e1939bf8aca7dece89d846349d615793fae2cea8ebb20a8207c0f22dafb88b1536819
   languageName: node
   linkType: hard
 
@@ -6185,6 +6253,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-sqlite@npm:11.0.0":
+  version: 11.0.0
+  resolution: "expo-sqlite@npm:11.0.0"
+  dependencies:
+    "@expo/websql": ^1.0.1
+  peerDependencies:
+    expo: "*"
+  checksum: 45712f811027cb91a22c051ced59c17f2b265bb508a1c993b2183fa41f7ccb177c12142266fbb5e6c82046eb4697d05fae7331e1a2cd6eb416cdc7340dd5cf70
+  languageName: node
+  linkType: hard
+
 "expo-status-bar@npm:1.4.4":
   version: 1.4.4
   resolution: "expo-status-bar@npm:1.4.4"
@@ -7359,6 +7438,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"immediate@npm:^3.2.2":
+  version: 3.3.0
+  resolution: "immediate@npm:3.3.0"
+  checksum: 634b4305101e2452eba6c07d485bf3e415995e533c94b9c3ffbc37026fa1be34def6e4f2276b0dc2162a3f91628564a4bfb26280278b89d3ee54624e854d2f5f
+  languageName: node
+  linkType: hard
+
 "immutable@npm:^4.0.0-rc.12":
   version: 4.2.4
   resolution: "immutable@npm:4.2.4"
@@ -8186,10 +8272,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsc-android@npm:^250231.0.0":
-  version: 250231.0.0
-  resolution: "jsc-android@npm:250231.0.0"
-  checksum: 6c3f0f6f02fa37a19935b2fbe651e9d6ecc370eb30f2ecee76379337bbf084abb568a1ef1133fe622c5b76f43cf54bb7716f92a94dca010985da38edc48841e2
+"jsc-android@npm:^250230.2.1":
+  version: 250230.2.1
+  resolution: "jsc-android@npm:250230.2.1"
+  checksum: 11b7c41a0a9192ea4697e61f72a65341afd143550159bbc951cfe8e08eaee4fb119a7f4b9241de15b7156a873f0faef677f6ee72c243ace013e537bfc819dd6d
   languageName: node
   linkType: hard
 
@@ -9625,6 +9711,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"noop-fn@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "noop-fn@npm:1.0.0"
+  checksum: e271f0590c06283d6216e268507fdab066d52164d7281cef1b99a2f40442c85297341c0e37a8fcbc9da95ea6cead7a87a69937c71a80fb3630b909d08b4e8c19
+  languageName: node
+  linkType: hard
+
 "nopt@npm:^6.0.0":
   version: 6.0.0
   resolution: "nopt@npm:6.0.0"
@@ -10461,6 +10554,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pouchdb-collections@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "pouchdb-collections@npm:1.0.1"
+  checksum: 5ac0c3f678406c143d99f5706123ab7d65bfd60a481a7eae2487ad355f5d3c926af0f0acfa9e47ff3e9d2aa0a782cca4431a37ba77d1a02cfd380c5cf5d6aef8
+  languageName: node
+  linkType: hard
+
 "prelude-ls@npm:^1.2.1":
   version: 1.2.1
   resolution: "prelude-ls@npm:1.2.1"
@@ -10778,7 +10878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-codegen@npm:^0.71.5":
+"react-native-codegen@npm:^0.71.3":
   version: 0.71.5
   resolution: "react-native-codegen@npm:0.71.5"
   dependencies:
@@ -10800,7 +10900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-gradle-plugin@npm:^0.71.15":
+"react-native-gradle-plugin@npm:^0.71.14":
   version: 0.71.15
   resolution: "react-native-gradle-plugin@npm:0.71.15"
   checksum: e1c1714568324405fbca4ca841a0ab62cd8b90c65b3320183825161358f2bdb5226c8b22153b3007c2455dc7535d839d07d43148e6cba7952ae948636154f2b6
@@ -10834,9 +10934,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.71.3":
-  version: 0.71.3
-  resolution: "react-native@npm:0.71.3"
+"react-native@npm:0.71.2":
+  version: 0.71.2
+  resolution: "react-native@npm:0.71.2"
   dependencies:
     "@jest/create-cache-key-function": ^29.2.1
     "@react-native-community/cli": 10.1.3
@@ -10852,7 +10952,7 @@ __metadata:
     event-target-shim: ^5.0.1
     invariant: ^2.2.4
     jest-environment-node: ^29.2.1
-    jsc-android: ^250231.0.0
+    jsc-android: ^250230.2.1
     memoize-one: ^5.0.0
     metro-react-native-babel-transformer: 0.73.7
     metro-runtime: 0.73.7
@@ -10862,8 +10962,8 @@ __metadata:
     pretty-format: ^26.5.2
     promise: ^8.3.0
     react-devtools-core: ^4.26.1
-    react-native-codegen: ^0.71.5
-    react-native-gradle-plugin: ^0.71.15
+    react-native-codegen: ^0.71.3
+    react-native-gradle-plugin: ^0.71.14
     react-refresh: ^0.4.0
     react-shallow-renderer: ^16.15.0
     regenerator-runtime: ^0.13.2
@@ -10876,7 +10976,7 @@ __metadata:
     react: 18.2.0
   bin:
     react-native: cli.js
-  checksum: 1f6cee37352db4981eadee3e07b04f19d4ad3eeebf2ede7e8d98d42c87ea6041ec3e5703038349c650148fadb1bfab3db0c52121620fd946d9cf4a47b130b715
+  checksum: c95bceaf75875aa612591b4de4f53918296aa8af1097ad8a75409fcae5292059db1a2da2dd97d791f02aa4397ad4da3ac21d91e2e3cc529c6a7de17a14358fe3
   languageName: node
   linkType: hard
 
@@ -12394,6 +12494,13 @@ __metadata:
   version: 2.0.0
   resolution: "tildify@npm:2.0.0"
   checksum: 0f5fee93624c4afdf75ee224c3b65aece4817ba5317fd70f49eaf084ea720d73556a6ef3f50079425a773ba3b93805b4524d14057841d4e4336516fdbe80635b
+  languageName: node
+  linkType: hard
+
+"tiny-queue@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "tiny-queue@npm:0.2.1"
+  checksum: 9fb00beb47da966cc9296af5049077a656f6111ffb5a20b38a068659b30d8459f8f80b7bcf938e15547c321ecb7da8d001f38c2c847c0492633ae3b69550a4df
   languageName: node
   linkType: hard
 

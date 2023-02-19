@@ -35,7 +35,10 @@
   "workspaces": {
     "packages": [
       "packages/example/*",
-      "packages/react-native-quick-sqlite"
+      "packages/deep-freeze",
+      "packages/react-native-expo-sqlite",
+      "packages/react-native-quick-sqlite",
+      "packages/replicache-generic-sqlite"
     ]
   }
 }
