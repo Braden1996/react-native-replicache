@@ -1,7 +1,6 @@
 {
   "name": "@react-native-replicache/deep-freeze",
   "version": "0.0.4",
-  "private": true,
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
   "react-native": "./src/index.ts",
