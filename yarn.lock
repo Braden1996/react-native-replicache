@@ -2517,7 +2517,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-replicache/deep-freeze@0.0.4, @react-native-replicache/deep-freeze@workspace:packages/deep-freeze":
+"@react-native-replicache/deep-freeze@1.0.0, @react-native-replicache/deep-freeze@workspace:packages/deep-freeze":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/deep-freeze@workspace:packages/deep-freeze"
   dependencies:
@@ -2554,8 +2554,8 @@ __metadata:
     "@braden1996/tsconfig": ^0.0.1
     "@react-native-replicache/example-client-shared": 0.0.0
     "@react-native-replicache/example-shared": 0.0.0
-    "@react-native-replicache/react-native-expo-sqlite": 0.0.4
-    "@react-native-replicache/react-native-quick-sqlite": 0.0.4
+    "@react-native-replicache/react-native-expo-sqlite": 1.0.0
+    "@react-native-replicache/react-native-quick-sqlite": 1.0.0
     "@types/react": ^18.0.28
     "@types/react-native": ~0.71.2
     "@types/react-native__assets": ^1.0.0
@@ -2652,12 +2652,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-expo-sqlite@0.0.4, @react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite":
+"@react-native-replicache/react-native-expo-sqlite@1.0.0, @react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/replicache-generic-sqlite": 0.0.4
+    "@react-native-replicache/replicache-generic-sqlite": 1.0.0
     "@types/react": ^18.0.28
     eslint: 8.32.0
     eslint-config-universe: ^11.1.1
@@ -2670,12 +2670,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-quick-sqlite@0.0.4, @react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite":
+"@react-native-replicache/react-native-quick-sqlite@1.0.0, @react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/replicache-generic-sqlite": 0.0.4
+    "@react-native-replicache/replicache-generic-sqlite": 1.0.0
     "@types/react": ^18.0.28
     eslint: 8.32.0
     eslint-config-universe: ^11.1.1
@@ -2687,12 +2687,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/replicache-generic-sqlite@0.0.4, @react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite":
+"@react-native-replicache/replicache-generic-sqlite@1.0.0, @react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/deep-freeze": 0.0.4
+    "@react-native-replicache/deep-freeze": 1.0.0
     eslint: 8.32.0
     eslint-config-universe: ^11.1.1
     prettier: ^2.8.3

@@ -1,46 +1,60 @@
 # React Native Replicache
 
-Plug-in React Native compatibility bindings for Replicache.
+> Plug-in React Native compatibility bindings for [Replicache](https://replicache.dev/).
 
-https://user-images.githubusercontent.com/5165963/219898954-f5e94045-69bf-4c33-84e8-7d152c6f2c32.mov
+<https://user-images.githubusercontent.com/5165963/219898954-f5e94045-69bf-4c33-84e8-7d152c6f2c32.mov>
 
 ## Why is this needed?
 
-By default, Replicache uses IndexedDB in the web-browser. This technology isn't available in React Native, but luckily Replicache is generic enough to allow us to provide our own local persistance provider.
+Replicache enables us to build applications that are performant, offline-capable and collaborative. By default, it uses [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) for client-side persistance. Unfortunately, this technology is not available in React Native and is only supported in web-browsers.
 
-## What's the strategy?
+Thankfully, Replicache allows us to provide our own transactional data-store via [`experimentalCreateKVStore`](https://doc.replicache.dev/api/interfaces/ReplicacheOptions#experimentalcreatekvstore). The goal of this project is to provide some implementations of such a store, along with some guidance in getting up and running with Replicache in React Native.
 
-Currently, the strategy is to provide an implementation of Replicache's `ExperimentalCreateKVStore` backed by  [`react-native-quick-sqlite`](https://github.com/ospfranco/react-native-quick-sqlite) or [`expo-sqlite`](https://docs.expo.dev/versions/latest/sdk/sqlite/#sqltransaction).
+## What are the strategies?
 
-Additionally, some configuration is required to received poke events from the server.
+React Native has relatively good support for SQLite - which provides the [strict serializable](https://jepsen.io/consistency/models/strict-serializable) transactions that we require.
+
+In particular, we provide the choice between two SQLite bindings:
+
+1. [`@react-native-replicache/react-native-expo-sqlite`](https://github.com/Braden1996/react-native-replicache/tree/master/packages/react-native-expo-sqlite)
+   - Backed by [`expo-sqlite`](https://docs.expo.dev/versions/latest/sdk/sqlite/)
+   - Supported in [Expo Go](https://expo.dev/client).
+2. [`@react-native-replicache/react-native-quick-sqlite`](https://github.com/Braden1996/react-native-replicache/tree/master/packages/react-native-quick-sqlite)
+   - Backed by [`react-native-quick-sqlite`](https://github.com/ospfranco/react-native-quick-sqlite)
+   - Better performance.
+
+### Any additional considerations?
+
+Some configuration is required to receive [poke](https://doc.replicache.dev/byob/poke) events from the server. In our example, [seen here](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts), we use a polyfill for Server Sent Events. These aren't built into React Native, but are really handy for a demo.
+
+You most likely want to use web-sockets for this. This is relatively trivial with Pusher/Ably etc and similar to the web-app so we won't discuss that further here.
 
 ## How can I install this?
 
 1. Install the following in your React Native project:
-    - `yarn add @react-native-replicache/react-native-quick-sqlite react-native-quick-sqlite expo-crypto`
-    - or
-    - `yarn add @react-native-replicache/react-native-expo-sqlite expo-sqlite expo-crypto`
+   - `yarn add expo-crypto`
+   - Decide which SQLite binding is for you and install one of the following:
+     - `yarn add react-native-quick-sqlite @react-native-replicache/react-native-quick-sqlite`
+     - `yarn add expo-sqlite @react-native-replicache/expo-sqlite`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
-  - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
-3. Pass `createReplicacheReactNativeQuickSQLiteExperimentalCreateKVStore` or `createReplicacheReactNativeExpoSQLiteExperimentalCreateKVStore` into Replicache's `experimentalCreateKVStore` option.
-  - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).
-
-## What else will I need to do?
-
-- Configure a poke mechanism.
-  - You will likely want to use web-sockets for this, managed via Pusher/Ably/etc
-  - In our example, [seen here](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts), we use a polyfill for Server Sent Events.
-    - These aren't built into React Native, but are really handy for a demo.
+   - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
+3. Pass in your chosen SQLite binding's React Native Replicache binding into Replicache's `experimentalCreateKVStore` option.
+   - This will be one of the following, depending on the binding you chose:
+     - `createReplicacheQuickSQLiteExperimentalCreateKVStore`
+     - `createReplicacheExpoSQLiteExperimentalCreateKVStore`
+   - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).
 
 ## How can I experiment with this locally?
 
-### Prerequisites:
+### Prerequisites
 
 - Environment capable of developing iOS/Android applications (iOS is likely preferred).
-  - See https://dev-yakuza.posstree.com/en/react-native/install-on-mac/
-    - or: https://reactnative.dev/docs/environment-setup
-    - Note: Installing [Xcode](https://developer.apple.com/xcode/) from the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) tends to be unusually slow and buggy.
-      - Try the `Download -> Website` approach instead, [found here](https://developer.apple.com/xcode/).
+  - See [How to install React Native on Mac](https://dev-yakuza.posstree.com/en/react-native/install-on-mac/)
+    - or: [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
+  - Note: Installing [Xcode](https://developer.apple.com/xcode/) from the [Mac App Store](https://apps.apple.com/us/app/xcode/id497799835?mt=12) tends to be unusually slow and buggy.
+    - Try download it from the [Apple website](https://developer.apple.com/xcode/) instead.
+
+### Instructions
 
 1. Clone the repository: `git clone https://github.com/braden1996/react-native-replicache.git`
 2. Install yarn dependencies from repo root: `yarn install`

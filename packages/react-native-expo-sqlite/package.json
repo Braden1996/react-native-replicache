@@ -1,6 +1,6 @@
 {
   "name": "@react-native-replicache/react-native-expo-sqlite",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
   "react-native": "./src/index.ts",
@@ -34,7 +34,7 @@
     "clean": "rm -rf dist .turbo"
   },
   "dependencies": {
-    "@react-native-replicache/replicache-generic-sqlite": "0.0.4"
+    "@react-native-replicache/replicache-generic-sqlite": "1.0.0"
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
