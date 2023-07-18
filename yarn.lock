@@ -2563,7 +2563,7 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.71.2
     react-native-flipper: 0.174.0
-    react-native-quick-sqlite: 8.0.0-beta.2
+    react-native-quick-sqlite: 8.0.4
     react-native-sse: ^1.1.0
     replicache: 12.2.0
     replicache-react: ^2.10.0
@@ -2649,7 +2649,7 @@ __metadata:
     "@types/react": ^18.0.28
     react-native-builder-bob: ^0.20.3
   peerDependencies:
-    react-native-quick-sqlite: ">=8.0.0-beta.2"
+    react-native-quick-sqlite: ">=8.0.4"
   languageName: unknown
   linkType: soft
 
@@ -10810,13 +10810,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-quick-sqlite@npm:8.0.0-beta.2":
-  version: 8.0.0-beta.2
-  resolution: "react-native-quick-sqlite@npm:8.0.0-beta.2"
+"react-native-quick-sqlite@npm:8.0.4":
+  version: 8.0.4
+  resolution: "react-native-quick-sqlite@npm:8.0.4"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 402ae1131910a4676d97fdf5049e20fc2a26c3677524b508ce025d404e14bf28b2e4d1243e4597a199eb4031bb148924a89895168ef7161b1d30f8a67ada3ed4
+  checksum: 034f8d1ea8a497af6d45d287d6173bd1b61e2120983a952ec7f46872a413a493dcf7f099943f0e91b2b951da832c740d0e1f216481619c7664107bf562a2df99
   languageName: node
   linkType: hard
 

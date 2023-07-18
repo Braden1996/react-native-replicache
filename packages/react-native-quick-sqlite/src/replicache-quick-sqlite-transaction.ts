@@ -2,7 +2,7 @@ import { ReplicacheGenericSQLiteTransaction } from "@react-native-replicache/rep
 import * as QuickSQLite from "react-native-quick-sqlite";
 
 export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTransaction {
-  private _tx: QuickSQLite.TransactionAsync | null = null;
+  private _tx: QuickSQLite.Transaction | null = null;
   private _transactionCommittedSubscriptions = new Set<() => void>();
   private _txCommitted = false;
   private _transactionEndedSubscriptions = new Set<{
@@ -20,7 +20,7 @@ export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTra
     return await new Promise<void>((resolve, reject) => {
       let didResolve = false;
       try {
-        this.db.transactionAsync(async (tx) => {
+        this.db.transaction(async (tx) => {
           didResolve = true;
           this._tx = tx;
           resolve();
