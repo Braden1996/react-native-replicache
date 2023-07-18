@@ -42,7 +42,7 @@
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {
-    "react-native-quick-sqlite": ">=8.0.0-beta.2"
+    "react-native-quick-sqlite": ">=8.0.4"
   },
   "react-native-builder-bob": {
     "source": "src",
