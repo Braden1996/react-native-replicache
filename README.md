@@ -35,7 +35,7 @@ You most likely want to use web-sockets for this. This is relatively trivial wit
    - `yarn add expo-crypto`
    - Decide which SQLite binding is for you and install one of the following:
      - `yarn add react-native-quick-sqlite @react-native-replicache/react-native-quick-sqlite`
-     - `yarn add expo-sqlite @react-native-replicache/expo-sqlite`
+     - `yarn add expo-sqlite @react-native-replicache/react-native-expo-sqlite`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
 3. Pass in your chosen SQLite binding's React Native Replicache binding into Replicache's `experimentalCreateKVStore` option.
