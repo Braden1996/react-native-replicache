@@ -1,6 +1,6 @@
 import { mutators } from "@react-native-replicache/example-shared";
 import { createReplicacheExpoSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-expo-sqlite";
-// import { createReplicacheReactNativeQuickSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-quick-sqlite";
+// import { createReplicacheReactNativeOpSQLiteExperimentalCreateKVStore } from "@react-native-replicache/react-native-op-sqlite";
 import React from "react";
 import EventSource from "react-native-sse";
 import { Replicache, TEST_LICENSE_KEY } from "replicache";
@@ -23,7 +23,7 @@ export function useReplicache(listID: string) {
         name: listID,
         mutators,
       }),
-    [listID]
+    [listID],
   );
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ export function useReplicache(listID: string) {
         headers: {
           withCredentials: true,
         },
-      }
+      },
     );
 
     ev.addEventListener("message", async (evt) => {

@@ -1,6 +1,6 @@
 {
-  "name": "@react-native-replicache/react-native-quick-sqlite",
-  "version": "1.0.0",
+  "name": "@react-native-replicache/react-native-op-sqlite",
+  "version": "1.1.0",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
   "react-native": "./src/index.ts",
@@ -13,7 +13,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/braden1996/react-native-replicache.git",
-    "directory": "packages/react-native-quick-sqlite"
+    "directory": "packages/react-native-op-sqlite"
   },
   "keywords": [
     "react-native-replicache",
@@ -34,15 +34,15 @@
     "clean": "yarn run root:rimraf dist .turbo"
   },
   "dependencies": {
-    "@react-native-replicache/replicache-generic-sqlite": "1.0.0"
+    "@react-native-replicache/replicache-generic-sqlite": "1.1.0"
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
-    "@types/react": "^18.0.28",
+    "@types/react": "~18.2.79",
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {
-    "react-native-quick-sqlite": ">=8.0.4"
+    "@op-engineering/op-sqlite": "^6.0.1"
   },
   "react-native-builder-bob": {
     "source": "src",

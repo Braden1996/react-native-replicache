@@ -58,7 +58,7 @@ async function init() {
   ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
     <React.StrictMode>
       <App rep={r} />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }
 await init();

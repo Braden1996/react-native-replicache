@@ -48,7 +48,7 @@ export class ReplicacheGenericSQLiteDatabaseManager {
     await tx.start(false);
     await tx.execute(
       "CREATE TABLE IF NOT EXISTS entry (key TEXT PRIMARY KEY, value TEXT)",
-      []
+      [],
     );
     await tx.commit();
   }

@@ -17,6 +17,7 @@
     "@react-native-replicache/example-client-shared": "0.0.0",
     "@react-native-replicache/example-shared": "0.0.0",
     "classnames": "^2.3.1",
+    "nanoid": "^3.3.7",
     "qs": "^6.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -27,10 +28,10 @@
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
     "@types/babel__core": "^7.20.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.6",
+    "@types/react": "~18.2.79",
+    "@types/react-dom": "~18.2.25",
     "@vitejs/plugin-react": "^2.0.1",
-    "typescript": "~4.9.4",
+    "typescript": "~5.4.5",
     "vite": "^3.0.7"
   },
   "eslintConfig": {

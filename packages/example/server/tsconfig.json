@@ -1,5 +1,5 @@
 {
-    "extends": "@braden1996/tsconfig/node.json",
+    "extends": "../../../node_modules/@braden1996/tsconfig/node.json",
     "compilerOptions": {
         "moduleResolution": "node",
         "rootDir": "./src",

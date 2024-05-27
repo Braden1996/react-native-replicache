@@ -14,7 +14,7 @@ Thankfully, Replicache allows us to provide our own transactional data-store via
 
 React Native has relatively good support for SQLite - which provides the [strict serializable](https://jepsen.io/consistency/models/strict-serializable) transactions that we require.
 
-Here we provide a store implementation backed by [`react-native-quick-sqlite`](https://github.com/ospfranco/react-native-quick-sqlite). However, we also offer [more bindings here](https://github.com/Braden1996/react-native-replicache). Be sure to see what best fits your project!
+Here we provide a store implementation backed by [`op-sqlite`](https://github.com/OP-Engineering/op-sqlite). However, we also offer [more bindings here](https://github.com/Braden1996/react-native-replicache). Be sure to see what best fits your project!
 
 ### Any additional considerations?
 
@@ -25,8 +25,8 @@ You most likely want to use web-sockets for this. This is relatively trivial wit
 ## How can I install this?
 
 1. Install the following in your React Native project:
-   - `yarn add expo-crypto react-native-quick-sqlite @react-native-replicache/react-native-quick-sqlite`
+   - `yarn add expo-crypto @op-engineering/op-sqlite @react-native-replicache/react-native-op-sqlite`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
-3. Pass in `createReplicacheQuickSQLiteExperimentalCreateKVStore` to Replicache's `experimentalCreateKVStore` option.
+3. Pass in `createReplicacheOPSQLiteExperimentalCreateKVStore` to Replicache's `experimentalCreateKVStore` option.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).

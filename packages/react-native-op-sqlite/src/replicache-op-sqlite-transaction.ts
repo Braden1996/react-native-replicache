@@ -1,8 +1,8 @@
+import * as OPSQLite from "@op-engineering/op-sqlite";
 import { ReplicacheGenericSQLiteTransaction } from "@react-native-replicache/replicache-generic-sqlite";
-import * as QuickSQLite from "react-native-quick-sqlite";
 
-export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTransaction {
-  private _tx: QuickSQLite.Transaction | null = null;
+export class ReplicacheOPSQLiteTransaction extends ReplicacheGenericSQLiteTransaction {
+  private _tx: OPSQLite.Transaction | null = null;
   private _transactionCommittedSubscriptions = new Set<() => void>();
   private _txCommitted = false;
   private _transactionEndedSubscriptions = new Set<{
@@ -11,12 +11,12 @@ export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTra
   }>();
   private _txEnded = false;
 
-  constructor(private readonly db: QuickSQLite.QuickSQLiteConnection) {
+  constructor(private readonly db: OPSQLite.OPSQLiteConnection) {
     super();
   }
 
-  // react-native-quick-sqlite doesn't support readonly
-  public async start(_readonly?: boolean) {
+  // op-sqlite doesn't support readonly
+  public async start() {
     return await new Promise<void>((resolve, reject) => {
       let didResolve = false;
       try {
@@ -26,7 +26,7 @@ export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTra
           resolve();
 
           try {
-            // react-native-quick-sqlite auto-commits our transaction when this callback ends.
+            // op-sqlite auto-commits our transaction when this callback ends.
             // Lets artificially keep it open until we commit.
             await this._waitForTransactionCommitted();
             this._setTransactionEnded(false);
@@ -44,7 +44,7 @@ export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTra
 
   public async execute(
     sqlStatement: string,
-    args?: (string | number | null)[] | undefined
+    args?: (string | number | null)[] | undefined,
   ) {
     const tx = this.assertTransactionReady();
     const { rows } = tx.execute(sqlStatement, args);
@@ -61,7 +61,7 @@ export class ReplicacheQuickSQLiteTransaction extends ReplicacheGenericSQLiteTra
 
   public async commit() {
     const tx = this.assertTransactionReady();
-    await tx.commit();
+    tx.commit();
     this._txCommitted = true;
     for (const resolver of this._transactionCommittedSubscriptions) {
       resolver();

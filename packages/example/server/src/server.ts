@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production") {
   });
   r.start(() => {
     console.log(
-      `Replicache is listening on ${options.host}:${options.port} -- ${default_dist}`
+      `Replicache is listening on ${options.host}:${options.port} -- ${default_dist}`,
     );
   });
 } else {
