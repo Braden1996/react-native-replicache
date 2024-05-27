@@ -1,7 +1,7 @@
 {
   "extends": "@braden1996/tsconfig/base.json",
   "compilerOptions": {
-    "types": []
+    "types": ["./types/globals"]
   },
   "include": ["src"]
 }
