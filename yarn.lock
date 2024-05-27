@@ -2523,6 +2523,8 @@ __metadata:
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
     react-native-builder-bob: ^0.20.3
+  peerDependencies:
+    replicache: ">=12.2.0"
   languageName: unknown
   linkType: soft
 

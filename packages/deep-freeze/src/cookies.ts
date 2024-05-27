@@ -1,5 +1,6 @@
+import type { ReadonlyJSONValue } from "replicache";
+
 import type { FrozenJSONValue } from "./frozen";
-import { ReadonlyJSONValue } from "./json-value";
 
 /**
  * A cookie is a value that is used to determine the order of snapshots. It
