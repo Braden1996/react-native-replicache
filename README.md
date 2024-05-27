@@ -40,7 +40,7 @@ You most likely want to use web-sockets for this. This is relatively trivial wit
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
 3. Pass in your chosen SQLite binding's React Native Replicache binding into Replicache's `experimentalCreateKVStore` option.
    - This will be one of the following, depending on the binding you chose:
-     - `createReplicacheQuickSQLiteExperimentalCreateKVStore`
+     - `createReplicacheOPSQLiteExperimentalCreateKVStore`
      - `createReplicacheExpoSQLiteExperimentalCreateKVStore`
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).
 
