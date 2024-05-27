@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
-    "@types/react": "^18.0.28",
+    "@types/react": "~18.2.79",
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {

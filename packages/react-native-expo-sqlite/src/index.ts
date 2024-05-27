@@ -10,13 +10,13 @@ import { ReplicacheExpoSQLiteTransaction } from "./replicache-expo-sqlite-transa
 
 const genericDatabase: GenericDatabaseManager = {
   open: async (name: string) => {
-    const db = SQLite.openDatabase(name);
+    const db = await SQLite.openDatabaseAsync(name);
 
     const genericDb: GenericSQLDatabase = {
-      transaction: () => new ReplicacheExpoSQLiteTransaction(name),
+      transaction: () => new ReplicacheExpoSQLiteTransaction(db),
       destroy: async () => {
         await db.closeAsync();
-        await db.deleteAsync();
+        await SQLite.deleteDatabaseAsync(name);
       },
       close: async () => await db.closeAsync(),
     };
@@ -26,7 +26,7 @@ const genericDatabase: GenericDatabaseManager = {
 };
 
 const expoDbManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
-  genericDatabase
+  genericDatabase,
 );
 
 export const createReplicacheExpoSQLiteExperimentalCreateKVStore =

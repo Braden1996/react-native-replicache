@@ -1,151 +1,80 @@
-import {
-  GenericSQLResultSetRowList,
-  ReplicacheGenericSQLiteTransaction,
-} from "@react-native-replicache/replicache-generic-sqlite";
-import { NativeModulesProxy } from "expo-modules-core";
-
-import { deserializeResultSet, serializeQuery } from "./utils";
-
-const { ExponentSQLite } = NativeModulesProxy;
-
-if (!ExponentSQLite) {
-  throw new Error("expo-sqlite seems to be missing!");
-}
+import { ReplicacheGenericSQLiteTransaction } from "@react-native-replicache/replicache-generic-sqlite";
+import * as SQLite from "expo-sqlite";
 
 export class ReplicacheExpoSQLiteTransaction extends ReplicacheGenericSQLiteTransaction {
-  private _openedTransaction = false;
-  private _readonly = false;
+  private _tx:
+    | Parameters<
+        Parameters<SQLite.SQLiteDatabase["withExclusiveTransactionAsync"]>[0]
+      >[0]
+    | null = null;
+  private _transactionCommittedSubscriptions = new Set<() => void>();
   private _txCommitted = false;
-  private _txRolledBack = false;
   private _transactionEndedSubscriptions = new Set<{
     resolve: () => void;
     reject: () => void;
   }>();
   private _txEnded = false;
 
-  constructor(private readonly _name: string) {
+  constructor(private readonly db: SQLite.SQLiteDatabase) {
     super();
   }
 
-  public async start(readonly: boolean) {
-    this._readonly = readonly;
-
+  // expo-sqlite doesn't support readonly
+  public async start() {
     return await new Promise<void>((resolve, reject) => {
       let didResolve = false;
+      try {
+        this.db.withExclusiveTransactionAsync(async (tx) => {
+          didResolve = true;
+          this._tx = tx;
+          resolve();
 
-      ExponentSQLite.exec(
-        this._name,
-        [["BEGIN TRANSACTION", []]],
-        this._readonly
-      ).then(
-        (nativeResultSets: any) => {
-          const result = deserializeResultSet(nativeResultSets[0]);
-          if ("error" in result) {
-            reject(result.error);
-          } else {
-            didResolve = true;
-            this._openedTransaction = true;
-            resolve();
+          try {
+            // expo-sqlite auto-commits our transaction when this callback ends.
+            // Lets artificially keep it open until we commit.
+            await this._waitForTransactionCommitted();
+            this._setTransactionEnded(false);
+          } catch {
+            this._setTransactionEnded(true);
           }
-        },
-        () => {
-          if (!didResolve) {
-            reject?.(new Error("ERROR"));
-          }
-          this._setTransactionEnded(true);
+        });
+      } catch {
+        if (!didResolve) {
+          reject(new Error("Did not resolve"));
         }
-      );
+      }
     });
   }
 
   public async execute(
     sqlStatement: string,
-    args?: (string | number | null)[] | undefined
+    args?: (string | number | null)[] | undefined,
   ) {
-    this.assertTransactionReady();
+    const tx = this.assertTransactionReady();
 
-    const sqlPromise = new Promise<GenericSQLResultSetRowList>(
-      (resolve, reject) => {
-        ExponentSQLite.exec(
-          this._name,
-          [serializeQuery({ sql: sqlStatement, args: args || [] })],
-          this._readonly
-        ).then(
-          (nativeResultSets: any) => {
-            const result = deserializeResultSet(nativeResultSets[0]);
-            if ("error" in result) {
-              reject(result.error);
-            } else {
-              const { rows } = result;
-
-              resolve({
-                length: rows.length,
-                item: (idx: number) => rows[idx],
-              });
-            }
-          },
-          (err: any) => {
-            // We don't need to know what went wrong; just that something did.
-            reject(err);
-
-            return true; // Rollback
-          }
-        );
-      }
-    );
-
+    const statement = await tx.prepareAsync(sqlStatement);
+    let allRows: any;
+    let result: any;
     try {
-      return await sqlPromise;
-    } catch {
-      this._rollback();
-      throw new Error("ROLLBACK");
+      result = await statement.executeAsync(...(args ?? []));
+      allRows = await result.getAllAsync();
+    } finally {
+      await statement.finalizeAsync();
     }
+
+    return {
+      item: (idx: number) => allRows[idx],
+      length: allRows.length,
+    };
   }
 
   public async commit() {
+    // Transaction is committed automatically.
     this._txCommitted = true;
-
-    return await new Promise<void>((resolve, reject) => {
-      ExponentSQLite.exec(this._name, [["COMMIT", []]], this._readonly).then(
-        (nativeResultSets: any) => {
-          const result = deserializeResultSet(nativeResultSets[0]);
-          if ("error" in result) {
-            reject(result.error);
-            this._setTransactionEnded(true);
-          } else {
-            resolve();
-            this._setTransactionEnded(false);
-          }
-        },
-        (err: any) => {
-          reject(err);
-          this._setTransactionEnded(true);
-        }
-      );
-    });
-  }
-
-  private async _rollback() {
-    this._txRolledBack = true;
-
-    return await new Promise<void>((resolve, reject) => {
-      ExponentSQLite.exec(this._name, [["ROLLBACK", []]], this._readonly).then(
-        (nativeResultSets: any) => {
-          const result = deserializeResultSet(nativeResultSets[0]);
-          if ("error" in result) {
-            reject(result.error);
-            this._setTransactionEnded(true);
-          } else {
-            resolve();
-            this._setTransactionEnded(false);
-          }
-        },
-        (err: any) => {
-          reject(err);
-          this._setTransactionEnded(true);
-        }
-      );
-    });
+    for (const resolver of this._transactionCommittedSubscriptions) {
+      resolver();
+    }
+    this._transactionCommittedSubscriptions.clear();
   }
 
   public waitForTransactionEnded() {
@@ -156,10 +85,17 @@ export class ReplicacheExpoSQLiteTransaction extends ReplicacheGenericSQLiteTran
   }
 
   private assertTransactionReady() {
-    if (!this._openedTransaction) throw new Error("Transaction is not ready.");
+    if (this._tx === null) throw new Error("Transaction is not ready.");
     if (this._txCommitted) throw new Error("Transaction already committed.");
-    if (this._txRolledBack) throw new Error("Transaction already rolled back.");
     if (this._txEnded) throw new Error("Transaction already ended.");
+    return this._tx;
+  }
+
+  private _waitForTransactionCommitted() {
+    if (this._txCommitted) return;
+    return new Promise<void>((resolve) => {
+      this._transactionCommittedSubscriptions.add(resolve);
+    });
   }
 
   private _setTransactionEnded(errored = false) {

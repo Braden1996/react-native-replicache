@@ -23,7 +23,7 @@ export function useReplicache(listID: string) {
         name: listID,
         mutators,
       }),
-    [listID]
+    [listID],
   );
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ export function useReplicache(listID: string) {
         headers: {
           withCredentials: true,
         },
-      }
+      },
     );
 
     ev.addEventListener("message", async (evt) => {

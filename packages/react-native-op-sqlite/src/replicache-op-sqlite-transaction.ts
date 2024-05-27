@@ -44,7 +44,7 @@ export class ReplicacheOPSQLiteTransaction extends ReplicacheGenericSQLiteTransa
 
   public async execute(
     sqlStatement: string,
-    args?: (string | number | null)[] | undefined
+    args?: (string | number | null)[] | undefined,
   ) {
     const tx = this.assertTransactionReady();
     const { rows } = tx.execute(sqlStatement, args);

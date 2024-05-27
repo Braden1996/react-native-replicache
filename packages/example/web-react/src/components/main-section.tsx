@@ -39,7 +39,7 @@ const MainSection = ({
     const completed = !toggleAllValue;
     onCompleteTodos(
       completed,
-      todos.map((todo) => todo.id)
+      todos.map((todo) => todo.id),
     );
   };
 

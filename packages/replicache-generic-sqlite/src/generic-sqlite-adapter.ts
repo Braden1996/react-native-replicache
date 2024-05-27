@@ -8,7 +8,7 @@ export abstract class ReplicacheGenericSQLiteTransaction {
 
   public abstract execute(
     sqlStatement: string,
-    args?: (string | number | null)[] | undefined
+    args?: (string | number | null)[] | undefined,
   ): Promise<GenericSQLResultSetRowList>;
 
   public abstract commit(): Promise<void>;

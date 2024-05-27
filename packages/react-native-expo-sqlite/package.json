@@ -38,12 +38,12 @@
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
-    "@types/react": "^18.0.28",
+    "@types/react": "~18.2.79",
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {
-    "expo-sqlite": ">=11.0.0",
-    "react-native": ">=0.71.0"
+    "expo-sqlite": ">=14.0.0",
+    "react-native": ">=0.74.0"
   },
   "react-native-builder-bob": {
     "source": "src",

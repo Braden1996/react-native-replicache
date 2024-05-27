@@ -20,10 +20,10 @@ export function deepFreeze(v: undefined): undefined;
 export function deepFreeze(v: Cookie): FrozenCookie;
 export function deepFreeze(v: ReadonlyJSONValue): FrozenJSONValue;
 export function deepFreeze(
-  v: ReadonlyJSONValue | undefined
+  v: ReadonlyJSONValue | undefined,
 ): FrozenJSONValue | undefined;
 export function deepFreeze(
-  v: ReadonlyJSONValue | undefined
+  v: ReadonlyJSONValue | undefined,
 ): FrozenJSONValue | undefined {
   if (skipFreeze) {
     return v as FrozenJSONValue | undefined;
@@ -76,7 +76,7 @@ function deepFreezeInternal(v: ReadonlyJSONValue, seen: object[]): void {
 
 function deepFreezeArray(
   v: readonly ReadonlyJSONValue[],
-  seen: object[]
+  seen: object[],
 ): void {
   for (const item of v) {
     deepFreezeInternal(item, seen);
@@ -92,7 +92,7 @@ function deepFreezeObject(v: ReadonlyJSONObject, seen: object[]): void {
 }
 
 export function assertFrozenJSONValue(
-  v: unknown
+  v: unknown,
 ): asserts v is FrozenJSONValue {
   if (skipFrozenAsserts || skipAssertJSONValue) {
     return;
