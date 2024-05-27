@@ -2330,6 +2330,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@op-engineering/op-sqlite@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "@op-engineering/op-sqlite@npm:6.0.1"
+  peerDependencies:
+    react: "*"
+    react-native: ">0.73.0"
+  checksum: 7398705fd7e13d2a8ead2dd3829247399ae09610373ecb931c9f7d1dbc266707113c792886a6b8ec6ded638ab840858c25773c56c017801a06cc8cb6942d8f96
+  languageName: node
+  linkType: hard
+
 "@react-native-community/cli-clean@npm:^10.1.1":
   version: 10.1.1
   resolution: "@react-native-community/cli-clean@npm:10.1.1"
@@ -2544,10 +2554,11 @@ __metadata:
   dependencies:
     "@babel/core": ^7.12.9
     "@braden1996/tsconfig": ^0.0.1
+    "@op-engineering/op-sqlite": ^6.0.1
     "@react-native-replicache/example-client-shared": 0.0.0
     "@react-native-replicache/example-shared": 0.0.0
     "@react-native-replicache/react-native-expo-sqlite": 1.0.0
-    "@react-native-replicache/react-native-quick-sqlite": 1.0.0
+    "@react-native-replicache/react-native-op-sqlite": 1.0.0
     "@types/react": ^18.0.28
     "@types/react-native": ~0.71.2
     "@types/react-native__assets": ^1.0.0
@@ -2563,7 +2574,6 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.71.2
     react-native-flipper: 0.174.0
-    react-native-quick-sqlite: 8.0.0-beta.2
     react-native-sse: ^1.1.0
     replicache: 12.2.0
     replicache-react: ^2.10.0
@@ -2640,16 +2650,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-quick-sqlite@1.0.0, @react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite":
+"@react-native-replicache/react-native-op-sqlite@1.0.0, @react-native-replicache/react-native-op-sqlite@workspace:packages/react-native-op-sqlite":
   version: 0.0.0-use.local
-  resolution: "@react-native-replicache/react-native-quick-sqlite@workspace:packages/react-native-quick-sqlite"
+  resolution: "@react-native-replicache/react-native-op-sqlite@workspace:packages/react-native-op-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
     "@react-native-replicache/replicache-generic-sqlite": 1.0.0
     "@types/react": ^18.0.28
     react-native-builder-bob: ^0.20.3
   peerDependencies:
-    react-native-quick-sqlite: ">=8.0.0-beta.2"
+    "@op-engineering/op-sqlite": ^6.0.1
   languageName: unknown
   linkType: soft
 
@@ -10807,16 +10817,6 @@ __metadata:
   version: 0.71.15
   resolution: "react-native-gradle-plugin@npm:0.71.15"
   checksum: e1c1714568324405fbca4ca841a0ab62cd8b90c65b3320183825161358f2bdb5226c8b22153b3007c2455dc7535d839d07d43148e6cba7952ae948636154f2b6
-  languageName: node
-  linkType: hard
-
-"react-native-quick-sqlite@npm:8.0.0-beta.2":
-  version: 8.0.0-beta.2
-  resolution: "react-native-quick-sqlite@npm:8.0.0-beta.2"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 402ae1131910a4676d97fdf5049e20fc2a26c3677524b508ce025d404e14bf28b2e4d1243e4597a199eb4031bb148924a89895168ef7161b1d30f8a67ada3ed4
   languageName: node
   linkType: hard
 

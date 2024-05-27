@@ -14,13 +14,13 @@ Thankfully, Replicache allows us to provide our own transactional data-store via
 
 React Native has relatively good support for SQLite - which provides the [strict serializable](https://jepsen.io/consistency/models/strict-serializable) transactions that we require.
 
-In particular, we provide the choice between two SQLite bindings:
+In particular, we provide the choice between three SQLite bindings:
 
 1. [`@react-native-replicache/react-native-expo-sqlite`](https://github.com/Braden1996/react-native-replicache/tree/master/packages/react-native-expo-sqlite)
    - Backed by [`expo-sqlite`](https://docs.expo.dev/versions/latest/sdk/sqlite/)
    - Supported in [Expo Go](https://expo.dev/client).
-2. [`@react-native-replicache/react-native-quick-sqlite`](https://github.com/Braden1996/react-native-replicache/tree/master/packages/react-native-quick-sqlite)
-   - Backed by [`react-native-quick-sqlite`](https://github.com/ospfranco/react-native-quick-sqlite)
+2. [`@react-native-replicache/react-native-op-sqlite`](https://github.com/Braden1996/react-native-replicache/tree/master/packages/react-native-op-sqlite)
+   - Backed by [`react-native-op-sqlite`](https://github.com/OP-Engineering/op-sqlite)
    - Better performance.
 
 ### Any additional considerations?
@@ -34,7 +34,7 @@ You most likely want to use web-sockets for this. This is relatively trivial wit
 1. Install the following in your React Native project:
    - `yarn add expo-crypto`
    - Decide which SQLite binding is for you and install one of the following:
-     - `yarn add react-native-quick-sqlite @react-native-replicache/react-native-quick-sqlite`
+     - `yarn add @op-engineering/op-sqlite @react-native-replicache/react-native-op-sqlite`
      - `yarn add expo-sqlite @react-native-replicache/expo-sqlite`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).

@@ -1,11 +1,11 @@
+import * as OPSQLite from "@op-engineering/op-sqlite";
 import {
   GenericDatabaseManager,
   getCreateReplicacheSQLiteExperimentalCreateKVStore,
   ReplicacheGenericSQLiteDatabaseManager,
-} from '@react-native-replicache/replicache-generic-sqlite';
-import * as OPSQLite from '@op-engineering/op-sqlite';
+} from "@react-native-replicache/replicache-generic-sqlite";
 
-import { ReplicacheOPSQLiteTransaction } from './replicache-op-sqlite-transaction';
+import { ReplicacheOPSQLiteTransaction } from "./replicache-op-sqlite-transaction";
 
 const genericDatabase: GenericDatabaseManager = {
   open: async (name: string) => {
@@ -19,7 +19,9 @@ const genericDatabase: GenericDatabaseManager = {
   },
 };
 
-const opSqlManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(genericDatabase);
+const opSqlManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
+  genericDatabase
+);
 
 export const createReplicacheReactNativeOPSQLiteExperimentalCreateKVStore =
   getCreateReplicacheSQLiteExperimentalCreateKVStore(opSqlManagerInstance);

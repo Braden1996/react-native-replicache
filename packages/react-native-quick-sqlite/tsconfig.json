@@ -1,9 +1,0 @@
-{
-  "extends": "@braden1996/tsconfig/react-native-library.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "baseUrl": ".",
-    "types": ["./types/replicache"]
-  },
-  "include": ["src"]
-}

@@ -44,7 +44,6 @@
       "packages/example/*",
       "packages/deep-freeze",
       "packages/react-native-expo-sqlite",
-      "packages/react-native-quick-sqlite",
       "packages/react-native-op-sqlite",
       "packages/replicache-generic-sqlite"
     ]

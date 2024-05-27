@@ -42,7 +42,7 @@
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {
-    "@op-engineering/op-sqlite": "^2.0.18"
+    "@op-engineering/op-sqlite": "^6.0.1"
   },
   "react-native-builder-bob": {
     "source": "src",

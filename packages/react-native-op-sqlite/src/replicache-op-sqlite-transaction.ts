@@ -1,5 +1,5 @@
+import * as OPSQLite from "@op-engineering/op-sqlite";
 import { ReplicacheGenericSQLiteTransaction } from "@react-native-replicache/replicache-generic-sqlite";
-import * as OPSQLite from '@op-engineering/op-sqlite';
 
 export class ReplicacheOPSQLiteTransaction extends ReplicacheGenericSQLiteTransaction {
   private _tx: OPSQLite.Transaction | null = null;
@@ -61,7 +61,7 @@ export class ReplicacheOPSQLiteTransaction extends ReplicacheGenericSQLiteTransa
 
   public async commit() {
     const tx = this.assertTransactionReady();
-    await tx.commit();
+    tx.commit();
     this._txCommitted = true;
     for (const resolver of this._transactionCommittedSubscriptions) {
       resolver();
