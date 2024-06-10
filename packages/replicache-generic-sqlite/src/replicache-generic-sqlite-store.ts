@@ -1,11 +1,11 @@
-import type { ExperimentalCreateKVStore } from "replicache";
+import type { KVStore } from "replicache";
 
 import { ReplicacheGenericSQLiteDatabaseManager } from "./replicache-generic-sqlite-database-manager";
 import { ReplicacheGenericSQLiteReadImpl } from "./replicache-generic-sqlite-read-impl";
 import { ReplicacheGenericSQLiteWriteImpl } from "./replicache-generic-sqlite-write-impl";
 
 export class ReplicacheGenericStore
-  implements ReturnType<ExperimentalCreateKVStore>
+  implements KVStore
 {
   private _closed = false;
 
@@ -23,7 +23,7 @@ export class ReplicacheGenericStore
 
   async withRead<R>(
     fn: (
-      read: Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["read"]>>,
+      read: Awaited<ReturnType<KVStore["read"]>>,
     ) => R | Promise<R>,
   ): Promise<R> {
     const read = await this.read();
@@ -35,7 +35,7 @@ export class ReplicacheGenericStore
   }
 
   async write(): Promise<
-    Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["write"]>>
+    Awaited<ReturnType<KVStore["write"]>>
   > {
     const db = await this._getDb();
     const tx = db.transaction();
@@ -46,7 +46,7 @@ export class ReplicacheGenericStore
   async withWrite<R>(
     fn: (
       write: Awaited<
-        ReturnType<ReturnType<ExperimentalCreateKVStore>["write"]>
+        ReturnType<KVStore["write"]>
       >,
     ) => R | Promise<R>,
   ): Promise<R> {

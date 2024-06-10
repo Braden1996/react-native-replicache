@@ -1,10 +1,10 @@
 import { deepFreeze } from "@react-native-replicache/deep-freeze";
-import type { ExperimentalCreateKVStore, ReadonlyJSONValue } from "replicache";
+import type { KVStore, ReadonlyJSONValue } from "replicache";
 
 import { ReplicacheGenericSQLiteTransaction } from "./generic-sqlite-adapter";
 
 export class ReplicacheGenericSQLiteReadImpl
-  implements Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["read"]>>
+  implements Awaited<ReturnType<KVStore["read"]>>
 {
   protected _tx: ReplicacheGenericSQLiteTransaction | null;
 
@@ -38,7 +38,7 @@ export class ReplicacheGenericSQLiteReadImpl
   private async _getSql(key: string) {
     const rows = await this._assertTx().execute(
       "SELECT value FROM entry WHERE key = ?",
-      [key],
+      [key]
     );
 
     if (rows.length === 0) return undefined;
