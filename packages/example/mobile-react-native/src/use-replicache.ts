@@ -18,8 +18,7 @@ export function useReplicache(listID: string) {
         licenseKey,
         pushURL: `http://127.0.0.1:8080/api/replicache/push?spaceID=${listID}`,
         pullURL: `http://127.0.0.1:8080/api/replicache/pull?spaceID=${listID}`,
-        experimentalCreateKVStore:
-          createReplicacheExpoSQLiteExperimentalCreateKVStore,
+        kvStore: createReplicacheExpoSQLiteExperimentalCreateKVStore,
         name: listID,
         mutators,
       }),

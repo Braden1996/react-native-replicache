@@ -29,5 +29,9 @@ const expoDbManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
   genericDatabase,
 );
 
-export const createReplicacheExpoSQLiteExperimentalCreateKVStore =
-  getCreateReplicacheSQLiteExperimentalCreateKVStore(expoDbManagerInstance);
+export const createReplicacheExpoSQLiteExperimentalCreateKVStore = {
+  create: getCreateReplicacheSQLiteExperimentalCreateKVStore(
+    expoDbManagerInstance
+  ),
+  drop: expoDbManagerInstance.destroy,
+};

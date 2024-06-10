@@ -20,8 +20,11 @@ const genericDatabase: GenericDatabaseManager = {
 };
 
 const opSqlManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
-  genericDatabase,
+  genericDatabase
 );
 
-export const createReplicacheReactNativeOPSQLiteExperimentalCreateKVStore =
-  getCreateReplicacheSQLiteExperimentalCreateKVStore(opSqlManagerInstance);
+export const createReplicacheReactNativeOPSQLiteExperimentalCreateKVStore = {
+  create:
+    getCreateReplicacheSQLiteExperimentalCreateKVStore(opSqlManagerInstance),
+  drop: opSqlManagerInstance.destroy,
+};

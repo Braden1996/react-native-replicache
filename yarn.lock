@@ -2108,6 +2108,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@badrap/valita@npm:^0.3.0":
+  version: 0.3.8
+  resolution: "@badrap/valita@npm:0.3.8"
+  checksum: 8df32993815baeb86182de4c79a2eae5c749bc871debc3225defc1fc5ff93de2e4f80dfc2e2b28277e609ade6f56aee03201d20129fee3930c71e05684a6c194
+  languageName: node
+  linkType: hard
+
 "@braden1996/tsconfig@npm:^0.0.1":
   version: 0.0.1
   resolution: "@braden1996/tsconfig@npm:0.0.1"
@@ -3213,7 +3220,7 @@ __metadata:
     "@braden1996/tsconfig": ^0.0.1
     react-native-builder-bob: ^0.20.3
   peerDependencies:
-    replicache: ">=12.2.0"
+    replicache: ">=15.0.0"
   languageName: unknown
   linkType: soft
 
@@ -3255,7 +3262,7 @@ __metadata:
     react-dom: 18.2.0
     react-native: 0.74.1
     react-native-sse: ^1.1.0
-    replicache: 12.2.0
+    replicache: 15.0.0
     replicache-react: ^2.10.0
   languageName: unknown
   linkType: soft
@@ -3351,9 +3358,9 @@ __metadata:
     "@braden1996/tsconfig": ^0.0.1
     "@react-native-replicache/deep-freeze": 1.1.0
     react-native-builder-bob: ^0.20.3
-    replicache: 12.2.0
+    replicache: 15.0.0
   peerDependencies:
-    replicache: ">=12.2.0"
+    replicache: ">=15.0.0"
   languageName: unknown
   linkType: soft
 
@@ -3554,6 +3561,29 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: c72113e32c222af94482a60e7cea8d296360abbc503afa64394af65ca106c7a36d975a68fed63e8cf5668ffebc33fa636665ceaf55c75d4cf949fb40302fc409
+  languageName: node
+  linkType: hard
+
+"@rocicorp/lock@npm:^1.0.3":
+  version: 1.0.4
+  resolution: "@rocicorp/lock@npm:1.0.4"
+  dependencies:
+    "@rocicorp/resolver": ^1.0.2
+  checksum: d585c44f16a303b60e30325b62faf64188cc1718fbde281a8aa8e7a0a5f71736deba98ab4f100679f9e84ce52258ef63cf66e78eb59f2d5ca6852e8092e89d60
+  languageName: node
+  linkType: hard
+
+"@rocicorp/logger@npm:^5.2.1":
+  version: 5.2.2
+  resolution: "@rocicorp/logger@npm:5.2.2"
+  checksum: 86b628be61dc74eef38dd2cf10734c8a26f3d22248714915f3aa180c01e10393e532548cc6c6e3e0ca2e278974a1e9516a3a95493602518cfc19b6236c056f87
+  languageName: node
+  linkType: hard
+
+"@rocicorp/resolver@npm:^1.0.1, @rocicorp/resolver@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@rocicorp/resolver@npm:1.0.2"
+  checksum: 924e8b069bdc8e92deec5382da1fad9a69ac518e397165c70c014b87669cb70d822fc0c61924753c2579e0724eb5601189e7d9dd25ef819e48fbb507016af9c0
   languageName: node
   linkType: hard
 
@@ -12675,6 +12705,20 @@ __metadata:
   bin:
     replicache: out/cli.cjs
   checksum: 7df859d45a8a78239aa45fde6d2c90d1cfded38e88bd66f395eff35750c1c60bc030f78c7eb0d23dcdcaf3845cd36db3ce31b7e1497915941aff0ca8fddc8774
+  languageName: node
+  linkType: hard
+
+"replicache@npm:15.0.0":
+  version: 15.0.0
+  resolution: "replicache@npm:15.0.0"
+  dependencies:
+    "@badrap/valita": ^0.3.0
+    "@rocicorp/lock": ^1.0.3
+    "@rocicorp/logger": ^5.2.1
+    "@rocicorp/resolver": ^1.0.1
+  bin:
+    replicache: out/cli.cjs
+  checksum: b52bdd2020eb0b2ece3fa49643cca2330227d1ce32f0b73cbd635ee85a1f014142b7341e007bec5803c187c02f2925c60e77db6915ef9158c41acd9d3a5b01a1
   languageName: node
   linkType: hard
 

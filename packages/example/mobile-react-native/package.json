@@ -35,7 +35,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
     "react-native-sse": "^1.1.0",
-    "replicache": "12.2.0",
+    "replicache": "15.0.0",
     "replicache-react": "^2.10.0"
   },
   "devDependencies": {

@@ -37,7 +37,7 @@
     "react-native-builder-bob": "^0.20.3"
   },
   "peerDependencies": {
-    "replicache": ">=12.2.0"
+    "replicache": ">=15.0.0"
   },
   "react-native-builder-bob": {
     "source": "src",

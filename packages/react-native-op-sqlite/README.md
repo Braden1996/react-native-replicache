@@ -8,7 +8,7 @@
 
 Replicache enables us to build applications that are performant, offline-capable and collaborative. By default, it uses [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) for client-side persistance. Unfortunately, this technology is not available in React Native and is only supported in web-browsers.
 
-Thankfully, Replicache allows us to provide our own transactional data-store via [`experimentalCreateKVStore`](https://doc.replicache.dev/api/interfaces/ReplicacheOptions#experimentalcreatekvstore). The goal of this project is to provide some implementations of such a store, along with some guidance in getting up and running with Replicache in React Native.
+Thankfully, Replicache allows us to provide our own transactional data-store via [`kvStore`](https://doc.replicache.dev/api/interfaces/ReplicacheOptions#experimentalcreatekvstore). The goal of this project is to provide some implementations of such a store, along with some guidance in getting up and running with Replicache in React Native.
 
 ## What are the strategies?
 
@@ -28,5 +28,5 @@ You most likely want to use web-sockets for this. This is relatively trivial wit
    - `yarn add expo-crypto @op-engineering/op-sqlite @react-native-replicache/react-native-op-sqlite`
 2. Ensure that you've polyfilled `crypto.getRandomValues` on the global namespace.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/crypto-polyfill.ts).
-3. Pass in `createReplicacheOPSQLiteExperimentalCreateKVStore` to Replicache's `experimentalCreateKVStore` option.
+3. Pass in `createReplicacheOPSQLiteExperimentalCreateKVStore` to Replicache's `kvStore` option.
    - See [here for an example](https://github.com/Braden1996/react-native-replicache/blob/master/packages/example/mobile-react-native/src/use-replicache.ts).

@@ -41,10 +41,10 @@
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
     "react-native-builder-bob": "^0.20.3",
-    "replicache": "12.2.0"
+    "replicache": "15.0.0"
   },
   "peerDependencies": {
-    "replicache": ">=12.2.0"
+    "replicache": ">=15.0.0"
   },
   "react-native-builder-bob": {
     "source": "src",
