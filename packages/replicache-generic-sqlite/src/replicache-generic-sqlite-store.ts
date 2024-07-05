@@ -4,14 +4,12 @@ import { ReplicacheGenericSQLiteDatabaseManager } from "./replicache-generic-sql
 import { ReplicacheGenericSQLiteReadImpl } from "./replicache-generic-sqlite-read-impl";
 import { ReplicacheGenericSQLiteWriteImpl } from "./replicache-generic-sqlite-write-impl";
 
-export class ReplicacheGenericStore
-  implements KVStore
-{
+export class ReplicacheGenericStore implements KVStore {
   private _closed = false;
 
   constructor(
     private readonly name: string,
-    private readonly _dbm: ReplicacheGenericSQLiteDatabaseManager,
+    private readonly _dbm: ReplicacheGenericSQLiteDatabaseManager
   ) {}
 
   async read() {
@@ -22,9 +20,7 @@ export class ReplicacheGenericStore
   }
 
   async withRead<R>(
-    fn: (
-      read: Awaited<ReturnType<KVStore["read"]>>,
-    ) => R | Promise<R>,
+    fn: (read: Awaited<ReturnType<KVStore["read"]>>) => R | Promise<R>
   ): Promise<R> {
     const read = await this.read();
     try {
@@ -34,9 +30,7 @@ export class ReplicacheGenericStore
     }
   }
 
-  async write(): Promise<
-    Awaited<ReturnType<KVStore["write"]>>
-  > {
+  async write(): Promise<Awaited<ReturnType<KVStore["write"]>>> {
     const db = await this._getDb();
     const tx = db.transaction();
     await tx.start(false);
@@ -44,11 +38,7 @@ export class ReplicacheGenericStore
   }
 
   async withWrite<R>(
-    fn: (
-      write: Awaited<
-        ReturnType<KVStore["write"]>
-      >,
-    ) => R | Promise<R>,
+    fn: (write: Awaited<ReturnType<KVStore["write"]>>) => R | Promise<R>
   ): Promise<R> {
     const write = await this.write();
     try {
@@ -59,8 +49,7 @@ export class ReplicacheGenericStore
   }
 
   async close() {
-    const db = await this._getDb();
-    db.close();
+    await this._dbm.close(this.name);
     this._closed = true;
   }
 
@@ -74,7 +63,7 @@ export class ReplicacheGenericStore
 }
 
 export function getCreateReplicacheSQLiteExperimentalCreateKVStore(
-  db: ReplicacheGenericSQLiteDatabaseManager,
+  db: ReplicacheGenericSQLiteDatabaseManager
 ) {
   return (name: string) => new ReplicacheGenericStore(name, db);
 }

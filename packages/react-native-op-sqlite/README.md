@@ -4,6 +4,11 @@
 
 <https://user-images.githubusercontent.com/5165963/219898954-f5e94045-69bf-4c33-84e8-7d152c6f2c32.mov>
 
+## Replicache version compatibility
+
+- 1.0.0 : replicache <= 14.2.2
+- 1.1.0 : replicache >= 15
+
 ## Why is this needed?
 
 Replicache enables us to build applications that are performant, offline-capable and collaborative. By default, it uses [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) for client-side persistance. Unfortunately, this technology is not available in React Native and is only supported in web-browsers.
