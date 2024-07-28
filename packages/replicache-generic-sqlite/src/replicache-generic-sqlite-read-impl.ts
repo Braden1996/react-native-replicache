@@ -21,6 +21,7 @@ export class ReplicacheGenericSQLiteReadImpl
     const unsafeValue = await this._getSql(key);
     if (unsafeValue === undefined) return;
     const parsedValue = JSON.parse(unsafeValue) as ReadonlyJSONValue;
+    // @ts-ignore
     const frozenValue = deepFreeze(parsedValue);
     return frozenValue;
   }
