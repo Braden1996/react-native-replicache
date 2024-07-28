@@ -4381,7 +4381,7 @@ __metadata:
     nodemon: ^2.0.19
     pg-mem: ^2.6.4
     replicache: 15.0.0
-    replicache-express: ^0.2.1
+    replicache-express: ^0.3.0-beta.2
     ts-node: ^10.9.1
   languageName: unknown
   linkType: soft
@@ -13860,19 +13860,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"replicache-express@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "replicache-express@npm:0.2.1"
+"replicache-express@npm:^0.3.0-beta.2":
+  version: 0.3.0-beta.2
+  resolution: "replicache-express@npm:0.3.0-beta.2"
   dependencies:
     nanoid: ^4.0.0
-    replicache-transaction: ^0.2.1
+    replicache-transaction: 0.3.1
   peerDependencies:
     express: ">=4.17.13"
     pg: ">=8.6.0"
     pg-mem: ">=2.5.0"
-    replicache: ">=12.0.1"
+    replicache: 13.0.0-beta.1
     zod: ">=3.17.3"
-  checksum: 36287bcfda90bcf56bff91e16d633d0b6f6575d27d013eb87de333ee6deb7f6e240be204c136964390ab606d123c76acbbc7fcc85318a4281e2a32787e933d45
+  checksum: 46a78a9f5b139c4073bd1b60b0caa7b2e217e1f13501b9b082f54c72af93b1f39b64c1e32165e9911cd2b8c10c94f79ad9d87d7c48d22c0907aa69276a18f7ee
   languageName: node
   linkType: hard
 
@@ -13886,14 +13886,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"replicache-transaction@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "replicache-transaction@npm:0.2.1"
+"replicache-transaction@npm:0.3.1":
+  version: 0.3.1
+  resolution: "replicache-transaction@npm:0.3.1"
   dependencies:
     compare-utf8: ^0.1.0
-  peerDependencies:
-    replicache: ">=12.0.1"
-  checksum: 7e06ef070a67427cad32c1ccf809fdb7c707b80d924ef650ab97607d9d6c0f0c409cc51c8158cf3c597299d6e332faf5a80b75a83d3c5da1cd5806140adfcb90
+  checksum: eaede47a52db1a20a4995a02ccee26c91e53526e37c755101c3e192599db9e3bb47bf98f49724ad86897773e0df4a9708e30fc7fc1b3f21ce7c9d6dc42b6add3
   languageName: node
   linkType: hard
 
