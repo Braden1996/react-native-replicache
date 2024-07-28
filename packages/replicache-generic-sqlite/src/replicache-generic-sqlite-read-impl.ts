@@ -39,7 +39,7 @@ export class ReplicacheGenericSQLiteReadImpl
   private async _getSql(key: string) {
     const rows = await this._assertTx().execute(
       "SELECT value FROM entry WHERE key = ?",
-      [key]
+      [key],
     );
 
     if (rows.length === 0) return undefined;

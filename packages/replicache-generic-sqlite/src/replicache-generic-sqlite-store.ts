@@ -9,7 +9,7 @@ export class ReplicacheGenericStore implements KVStore {
 
   constructor(
     private readonly name: string,
-    private readonly _dbm: ReplicacheGenericSQLiteDatabaseManager
+    private readonly _dbm: ReplicacheGenericSQLiteDatabaseManager,
   ) {}
 
   async read() {
@@ -20,7 +20,7 @@ export class ReplicacheGenericStore implements KVStore {
   }
 
   async withRead<R>(
-    fn: (read: Awaited<ReturnType<KVStore["read"]>>) => R | Promise<R>
+    fn: (read: Awaited<ReturnType<KVStore["read"]>>) => R | Promise<R>,
   ): Promise<R> {
     const read = await this.read();
     try {
@@ -38,7 +38,7 @@ export class ReplicacheGenericStore implements KVStore {
   }
 
   async withWrite<R>(
-    fn: (write: Awaited<ReturnType<KVStore["write"]>>) => R | Promise<R>
+    fn: (write: Awaited<ReturnType<KVStore["write"]>>) => R | Promise<R>,
   ): Promise<R> {
     const write = await this.write();
     try {
@@ -62,8 +62,8 @@ export class ReplicacheGenericStore implements KVStore {
   }
 }
 
-export function getCreateReplicacheSQLiteExperimentalCreateKVStore(
-  db: ReplicacheGenericSQLiteDatabaseManager
+export function getCreateReplicacheSQLiteKVStore(
+  db: ReplicacheGenericSQLiteDatabaseManager,
 ) {
   return (name: string) => new ReplicacheGenericStore(name, db);
 }

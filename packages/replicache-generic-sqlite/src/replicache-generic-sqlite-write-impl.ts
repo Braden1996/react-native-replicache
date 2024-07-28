@@ -10,7 +10,7 @@ export class ReplicacheGenericSQLiteWriteImpl
     const jsonValueString = JSON.stringify(value);
     await this._assertTx().execute(
       "INSERT OR REPLACE INTO entry (key, value) VALUES (?, ?)",
-      [key, jsonValueString]
+      [key, jsonValueString],
     );
   }
 

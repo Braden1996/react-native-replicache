@@ -4313,7 +4313,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-replicache/deep-freeze@1.1.0, @react-native-replicache/deep-freeze@workspace:packages/deep-freeze":
+"@react-native-replicache/deep-freeze@1.3.0, @react-native-replicache/deep-freeze@workspace:packages/deep-freeze":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/deep-freeze@workspace:packages/deep-freeze"
   dependencies:
@@ -4331,8 +4331,8 @@ __metadata:
     "@braden1996/tsconfig": ^0.0.1
   peerDependencies:
     react: ">=18.2.0"
-    replicache: ">=12.2.0"
-    replicache-react: ">=2.10.0"
+    replicache: 15.0.0
+    replicache-react: ^2.10.0
   languageName: unknown
   linkType: soft
 
@@ -4345,8 +4345,8 @@ __metadata:
     "@op-engineering/op-sqlite": ^6.0.1
     "@react-native-replicache/example-client-shared": 0.0.0
     "@react-native-replicache/example-shared": 0.0.0
-    "@react-native-replicache/react-native-expo-sqlite": 1.1.0
-    "@react-native-replicache/react-native-op-sqlite": 1.1.0
+    "@react-native-replicache/react-native-expo-sqlite": 1.3.0
+    "@react-native-replicache/react-native-op-sqlite": 1.3.0
     "@types/react": ~18.2.79
     "@types/react-native": ~0.73.0
     expo: ~51.0.8
@@ -4380,7 +4380,7 @@ __metadata:
     express: ^4.18.1
     nodemon: ^2.0.19
     pg-mem: ^2.6.4
-    replicache: 12.2.0
+    replicache: 15.0.0
     replicache-express: ^0.2.1
     ts-node: ^10.9.1
   languageName: unknown
@@ -4396,7 +4396,7 @@ __metadata:
     nodemon: ^2.0.19
     ts-node: ^10.9.1
   peerDependencies:
-    replicache: ">=12.2.0"
+    replicache: ">=15.0.0"
   languageName: unknown
   linkType: soft
 
@@ -4416,7 +4416,7 @@ __metadata:
     qs: ^6.11.0
     react: 18.2.0
     react-dom: 18.2.0
-    replicache: 12.2.0
+    replicache: 15.0.0
     replicache-react: ^2.10.0
     todomvc-app-css: ^2.4.2
     typescript: ~5.4.5
@@ -4424,12 +4424,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-expo-sqlite@1.1.0, @react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite":
+"@react-native-replicache/react-native-expo-sqlite@1.3.0, @react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/react-native-expo-sqlite@workspace:packages/react-native-expo-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/replicache-generic-sqlite": 1.1.0
+    "@react-native-replicache/replicache-generic-sqlite": 1.3.0
     "@types/react": ~18.2.79
     react-native-builder-bob: ^0.20.3
   peerDependencies:
@@ -4438,25 +4438,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/react-native-op-sqlite@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@react-native-replicache/react-native-op-sqlite@npm:1.1.0"
-  dependencies:
-    "@react-native-replicache/replicache-generic-sqlite": 1.1.0
-  peerDependencies:
-    "@op-engineering/op-sqlite": ^6.0.1
-  checksum: 3c5ec224cbad399be1bd28fc2152feff68bf40efef0eeb2979a0d084b773e43bbc89b16929812484a51fb8c6dd57dd951bdf559e7ed740397b7c93e40e0bde0c
-  languageName: node
-  linkType: hard
-
-"@react-native-replicache/react-native-op-sqlite@workspace:packages/react-native-op-sqlite":
+"@react-native-replicache/react-native-op-sqlite@1.3.0, @react-native-replicache/react-native-op-sqlite@workspace:packages/react-native-op-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/react-native-op-sqlite@workspace:packages/react-native-op-sqlite"
   dependencies:
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/replicache-generic-sqlite": 1.1.0
+    "@react-native-replicache/replicache-generic-sqlite": 1.3.0
     "@types/react": ~18.2.79
     react-native-builder-bob: ^0.20.3
   peerDependencies:
@@ -4464,12 +4453,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@react-native-replicache/replicache-generic-sqlite@1.1.0, @react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite":
+"@react-native-replicache/replicache-generic-sqlite@1.3.0, @react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite":
   version: 0.0.0-use.local
   resolution: "@react-native-replicache/replicache-generic-sqlite@workspace:packages/replicache-generic-sqlite"
   dependencies:
     "@braden1996/tsconfig": ^0.0.1
-    "@react-native-replicache/deep-freeze": 1.1.0
+    "@react-native-replicache/deep-freeze": 1.3.0
     react-native-builder-bob: ^0.20.3
     replicache: 15.0.0
   peerDependencies:
@@ -13905,15 +13894,6 @@ __metadata:
   peerDependencies:
     replicache: ">=12.0.1"
   checksum: 7e06ef070a67427cad32c1ccf809fdb7c707b80d924ef650ab97607d9d6c0f0c409cc51c8158cf3c597299d6e332faf5a80b75a83d3c5da1cd5806140adfcb90
-  languageName: node
-  linkType: hard
-
-"replicache@npm:12.2.0":
-  version: 12.2.0
-  resolution: "replicache@npm:12.2.0"
-  bin:
-    replicache: out/cli.cjs
-  checksum: 7df859d45a8a78239aa45fde6d2c90d1cfded38e88bd66f395eff35750c1c60bc030f78c7eb0d23dcdcaf3845cd36db3ce31b7e1497915941aff0ca8fddc8774
   languageName: node
   linkType: hard
 

@@ -37,7 +37,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "pg-mem": "^2.6.4",
-    "replicache": "12.2.0",
+    "replicache": "15.0.0",
     "replicache-express": "^0.2.1"
   },
   "devDependencies": {

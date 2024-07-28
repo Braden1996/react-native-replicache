@@ -21,7 +21,7 @@
     "ts-node": "^10.9.1"
   },
   "peerDependencies": {
-    "replicache": ">=12.2.0"
+    "replicache": ">=15.0.0"
   },
   "eslintConfig": {
     "extends": "universe"

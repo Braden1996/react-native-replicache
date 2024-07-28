@@ -87,7 +87,7 @@ function deepFreezeArray(
 function deepFreezeObject(v: ReadonlyJSONObject, seen: object[]): void {
   for (const k in v) {
     if (hasOwn(v, k)) {
-      deepFreezeInternal(v[k], seen);
+      deepFreezeInternal(v[k]!, seen);
     }
   }
 }

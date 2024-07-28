@@ -1,7 +1,7 @@
 import * as OPSQLite from "@op-engineering/op-sqlite";
 import {
   GenericDatabaseManager,
-  getCreateReplicacheSQLiteExperimentalCreateKVStore,
+  getCreateReplicacheSQLiteKVStore,
   ReplicacheGenericSQLiteDatabaseManager,
 } from "@react-native-replicache/replicache-generic-sqlite";
 
@@ -20,11 +20,10 @@ const genericDatabase: GenericDatabaseManager = {
 };
 
 const opSqlManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
-  genericDatabase
+  genericDatabase,
 );
 
-export const createReplicacheReactNativeOPSQLiteExperimentalCreateKVStore = {
-  create:
-    getCreateReplicacheSQLiteExperimentalCreateKVStore(opSqlManagerInstance),
+export const createReplicacheReactNativeOPSQLiteKVStore = {
+  create: getCreateReplicacheSQLiteKVStore(opSqlManagerInstance),
   drop: opSqlManagerInstance.destroy,
 };

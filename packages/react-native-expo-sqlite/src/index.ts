@@ -1,7 +1,7 @@
 import {
   GenericDatabaseManager,
   GenericSQLDatabase,
-  getCreateReplicacheSQLiteExperimentalCreateKVStore,
+  getCreateReplicacheSQLiteKVStore,
   ReplicacheGenericSQLiteDatabaseManager,
 } from "@react-native-replicache/replicache-generic-sqlite";
 import * as SQLite from "expo-sqlite";
@@ -29,9 +29,7 @@ const expoDbManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
   genericDatabase,
 );
 
-export const createReplicacheExpoSQLiteExperimentalCreateKVStore = {
-  create: getCreateReplicacheSQLiteExperimentalCreateKVStore(
-    expoDbManagerInstance
-  ),
+export const createReplicacheExpoSQLiteKVStore = {
+  create: getCreateReplicacheSQLiteKVStore(expoDbManagerInstance),
   drop: expoDbManagerInstance.destroy,
 };
