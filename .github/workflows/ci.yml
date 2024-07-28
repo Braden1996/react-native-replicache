@@ -59,6 +59,9 @@ jobs:
           node-version: 16
           cache: "yarn"
 
+      - name: Install dependencies
+        run: yarn install --immutable
+
       - name: Generate new syncpack snapshot
         run: yarn run update-syncpack-snapshot
         shell: bash
