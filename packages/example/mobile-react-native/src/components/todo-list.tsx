@@ -7,14 +7,13 @@ import { useSubscribe } from "replicache-react";
 import { TodoInput } from "./todo-input";
 import { TodoItem } from "./todo-item";
 import { useReplicache } from "../use-replicache";
-import { dropAllDatabases } from "replicache";
 
 interface TodoListProps {
   listId: string;
 }
 
 export function TodoList({ listId }: TodoListProps) {
-  const rep = useReplicache(listId);
+  const { rep, close } = useReplicache(listId);
 
   // Subscribe to all todos and sort them.
   const todos = useSubscribe(rep, listTodos, [], [rep]);
@@ -57,10 +56,7 @@ export function TodoList({ listId }: TodoListProps) {
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}>List: {listId}</Text>
 
-          <Button title="Logout" onPress={async () => {
-              await rep.close()
-              await dropAllDatabases()
-          }}></Button>
+          <Button title="Logout" onPress={close} />
         </View>
       }
       ItemSeparatorComponent={() => <View style={styles.separator} />}

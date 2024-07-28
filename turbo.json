@@ -6,7 +6,8 @@
       ],
       "outputs": [
         "dist/**"
-      ]
+      ],
+      "cache": false
     },
     "test": {
       "dependsOn": [
@@ -18,7 +19,8 @@
     "clean": {
       "outputs": [
         "dist/**"
-      ]
+      ],
+      "cache": false
     },
     "test-typescript": {
       "outputs": []
