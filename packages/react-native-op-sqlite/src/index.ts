@@ -25,5 +25,5 @@ const opSqlManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
 
 export const createReplicacheReactNativeOPSQLiteKVStore = {
   create: getCreateReplicacheSQLiteKVStore(opSqlManagerInstance),
-  drop: opSqlManagerInstance.destroy,
+  drop: (name: string) => opSqlManagerInstance.destroy(name),
 };

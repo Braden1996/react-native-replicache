@@ -1,12 +1,13 @@
 import { listTodos, TodoUpdate } from "@react-native-replicache/example-shared";
 import { nanoid } from "nanoid";
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 import { useSubscribe } from "replicache-react";
 
 import { TodoInput } from "./todo-input";
 import { TodoItem } from "./todo-item";
 import { useReplicache } from "../use-replicache";
+import { dropAllDatabases } from "replicache";
 
 interface TodoListProps {
   listId: string;
@@ -55,6 +56,11 @@ export function TodoList({ listId }: TodoListProps) {
       ListFooterComponent={
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}>List: {listId}</Text>
+
+          <Button title="Logout" onPress={async () => {
+              await rep.close()
+              await dropAllDatabases()
+          }}></Button>
         </View>
       }
       ItemSeparatorComponent={() => <View style={styles.separator} />}

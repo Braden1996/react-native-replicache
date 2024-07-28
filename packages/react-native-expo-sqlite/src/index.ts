@@ -31,5 +31,5 @@ const expoDbManagerInstance = new ReplicacheGenericSQLiteDatabaseManager(
 
 export const createReplicacheExpoSQLiteKVStore = {
   create: getCreateReplicacheSQLiteKVStore(expoDbManagerInstance),
-  drop: expoDbManagerInstance.destroy,
+  drop: (name: string) => expoDbManagerInstance.destroy(name),
 };
