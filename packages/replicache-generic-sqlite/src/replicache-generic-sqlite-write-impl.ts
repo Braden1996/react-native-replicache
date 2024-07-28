@@ -1,11 +1,10 @@
-import type { ExperimentalCreateKVStore, ReadonlyJSONValue } from "replicache";
+import type { KVStore, ReadonlyJSONValue } from "replicache";
 
 import { ReplicacheGenericSQLiteReadImpl } from "./replicache-generic-sqlite-read-impl";
 
 export class ReplicacheGenericSQLiteWriteImpl
   extends ReplicacheGenericSQLiteReadImpl
-  implements
-    Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["write"]>>
+  implements Awaited<ReturnType<KVStore["write"]>>
 {
   async put(key: string, value: ReadonlyJSONValue) {
     const jsonValueString = JSON.stringify(value);

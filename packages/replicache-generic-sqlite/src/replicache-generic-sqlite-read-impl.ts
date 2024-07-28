@@ -1,10 +1,10 @@
 import { deepFreeze } from "@react-native-replicache/deep-freeze";
-import type { ExperimentalCreateKVStore, ReadonlyJSONValue } from "replicache";
+import type { KVStore, ReadonlyJSONValue } from "replicache";
 
 import { ReplicacheGenericSQLiteTransaction } from "./generic-sqlite-adapter";
 
 export class ReplicacheGenericSQLiteReadImpl
-  implements Awaited<ReturnType<ReturnType<ExperimentalCreateKVStore>["read"]>>
+  implements Awaited<ReturnType<KVStore["read"]>>
 {
   protected _tx: ReplicacheGenericSQLiteTransaction | null;
 
@@ -21,6 +21,7 @@ export class ReplicacheGenericSQLiteReadImpl
     const unsafeValue = await this._getSql(key);
     if (unsafeValue === undefined) return;
     const parsedValue = JSON.parse(unsafeValue) as ReadonlyJSONValue;
+    // @ts-ignore
     const frozenValue = deepFreeze(parsedValue);
     return frozenValue;
   }

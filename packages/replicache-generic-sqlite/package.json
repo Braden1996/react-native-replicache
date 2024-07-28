@@ -1,6 +1,6 @@
 {
   "name": "@react-native-replicache/replicache-generic-sqlite",
-  "version": "1.1.0",
+  "version": "1.3.0",
   "main": "./dist/commonjs/index.js",
   "module": "./dist/module/index.js",
   "react-native": "./src/index.ts",
@@ -36,15 +36,15 @@
     "clean": "yarn run root:rimraf dist .turbo"
   },
   "dependencies": {
-    "@react-native-replicache/deep-freeze": "1.1.0"
+    "@react-native-replicache/deep-freeze": "1.3.0"
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
     "react-native-builder-bob": "^0.20.3",
-    "replicache": "12.2.0"
+    "replicache": "15.0.0"
   },
   "peerDependencies": {
-    "replicache": ">=12.2.0"
+    "replicache": ">=15.0.0"
   },
   "react-native-builder-bob": {
     "source": "src",

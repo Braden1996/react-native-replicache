@@ -28,7 +28,8 @@
     "graph": "turbo run build --graph=graph.pdf",
     "root:eslint": "cd $INIT_CWD && eslint",
     "root:rimraf": "cd $INIT_CWD && rimraf",
-    "root:tsc": "cd $INIT_CWD && tsc"
+    "root:tsc": "cd $INIT_CWD && tsc",
+    "update-syncpack-snapshot": "syncpack list-mismatch --filter '^(?!@react-native-replicache/)(?!react-native-replicache$).*$' | sed '/^-/d' > syncpack-snapshot.txt"
   },
   "devDependencies": {
     "eslint": "8.56.0",

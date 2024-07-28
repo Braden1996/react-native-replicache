@@ -1,7 +1,7 @@
 import { listTodos, TodoUpdate } from "@react-native-replicache/example-shared";
 import { nanoid } from "nanoid";
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { Button, FlatList, StyleSheet, Text, View } from "react-native";
 import { useSubscribe } from "replicache-react";
 
 import { TodoInput } from "./todo-input";
@@ -13,7 +13,7 @@ interface TodoListProps {
 }
 
 export function TodoList({ listId }: TodoListProps) {
-  const rep = useReplicache(listId);
+  const { rep, close } = useReplicache(listId);
 
   // Subscribe to all todos and sort them.
   const todos = useSubscribe(rep, listTodos, [], [rep]);
@@ -55,6 +55,8 @@ export function TodoList({ listId }: TodoListProps) {
       ListFooterComponent={
         <View style={styles.footerContainer}>
           <Text style={styles.footerText}>List: {listId}</Text>
+
+          <Button title="Logout" onPress={close} />
         </View>
       }
       ItemSeparatorComponent={() => <View style={styles.separator} />}

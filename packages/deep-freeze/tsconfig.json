@@ -1,6 +1,7 @@
 {
   "extends": "@braden1996/tsconfig/base.json",
   "compilerOptions": {
+    "target": "ES2017",
     "types": ["./types/globals"]
   },
   "include": ["src"]

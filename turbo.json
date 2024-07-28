@@ -6,25 +6,30 @@
       ],
       "outputs": [
         "dist/**"
-      ]
+      ],
+      "cache": false
     },
     "test": {
       "dependsOn": [
         "^test-typescript",
         "^lint",
         "^build"
-      ]
+      ],
+      "cache": false
     },
     "clean": {
       "outputs": [
         "dist/**"
-      ]
+      ],
+      "cache": false
     },
     "test-typescript": {
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "lint": {
-      "outputs": []
+      "outputs": [],
+      "cache": false
     },
     "lint-fix": {
       "cache": false

@@ -37,8 +37,8 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "pg-mem": "^2.6.4",
-    "replicache": "12.2.0",
-    "replicache-express": "^0.2.1"
+    "replicache": "15.0.0",
+    "replicache-express": "^0.3.0-beta.2"
   },
   "devDependencies": {
     "@braden1996/tsconfig": "^0.0.1",
